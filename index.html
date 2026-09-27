@@ -658,6 +658,31 @@
       color: #0f172a;
     }
 
+    .cert-target-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .target-title {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #1d4ed8;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .target-desc {
+      font-size: 0.84rem;
+      color: #1e40af;
+      line-height: 1.45;
+      font-weight: 500;
+    }
+
     .cert-benefit-box {
       background: #f0fdf4;
       border: 1px solid #bbf7d0;
@@ -1093,6 +1118,10 @@
             </div>
           </div>
           <div class="form-group">
+            <label for="formTargetAudience">Hangi Bölümlere / Kimlere Fayda Sağlar?</label>
+            <input type="text" id="formTargetAudience" class="form-control" placeholder="Örn: İİBF, İletişim, Mühendislik, Tüm Öğrenciler...">
+          </div>
+          <div class="form-group">
             <label for="formBenefit">Ne İşe Yarar? (Kariyer & CV Katkısı)</label>
             <input type="text" id="formBenefit" class="form-control" placeholder="Örn: LinkedIn profiline eklenebilir, staj başvurularında öne çıkarır.">
           </div>
@@ -1227,6 +1256,7 @@
         provider: 'Google Dijital Atölye',
         duration: '40 Saat (Esnek / Kendi Hızınızda)',
         cost: 'TAMAMEN ÜCRETSİZ',
+        targetAudience: 'İİBF (İşletme, İktisat), İletişim Fakültesi (Halkla İlişkiler, Radyo-TV, Reklamcılık), Turizm ve E-ticaretle ilgilenen tüm öğrenciler',
         benefit: 'Tüm dünyada geçerli resmi Google sertifikası. CV’de ve LinkedIn’de doğrudan doğrulanabilir. Pazarlama, e-ticaret ve sosyal medya staj başvurularında çok büyük avantaj sağlar.',
         desc: '26 modülden oluşan, sıfırdan dijital pazarlama, SEO, reklam yönetimi ve analiz öğreten dünyanın en popüler ücretsiz resmi sertifika programı.',
         url: 'https://learndigital.withgoogle.com/dijitalatolye',
@@ -1245,6 +1275,7 @@
         provider: 'BTK Akademi (T.C. Ulaştırma Bakanlığı)',
         duration: 'Yaklaşık 25-30 Saat',
         cost: 'TAMAMEN ÜCRETSİZ',
+        targetAudience: 'Mühendislik Fakültesi (Bilgisayar, Elektrik, Endüstri), Fen Fakültesi (Matematik, Fizik) ve Veri Analizi/Yazılıma meraklı tüm öğrenciler',
         benefit: 'e-Devlet üzerinden sorgulanabilir ve doğrulanabilir resmi T.C. sertifikası. Kamu ve özel sektör stajlarında, teknik mülakatlarda doğrudan resmi referans sayılır.',
         desc: 'Temel programlama mantığından başlayarak veri yapıları, nesne yönelimli programlama ve proje geliştirmeyi kapsayan kapsamlı Türkçe eğitim.',
         url: 'https://www.btkakademi.gov.tr',
@@ -1261,6 +1292,7 @@
         provider: 'Harvard University (edX)',
         duration: '10-12 Hafta (Haftalık 6-8 saat)',
         cost: 'ÜCRETSİZ ERİŞİM & PROJE BELGESİ',
+        targetAudience: 'Bilgisayar/Yazılım Mühendisliği, Yönetim Bilişim Sistemleri (YBS) ve Küresel çapta yazılımcı olmak isteyen tüm disiplinler',
         benefit: 'Dünyanın en prestijli üniversitesinin bilgisayar bilimi temelleri. Algoritma, C, Python, SQL ve Web geliştirme yeteneğini uluslararası düzeyde kanıtlar.',
         desc: 'Harvard profesörü David J. Malan tarafından verilen, yazılım dünyasının en saygın başlangıç programı. Ödevleri tamamlayarak başarı belgesi alınabiliyor.',
         url: 'https://pll.harvard.edu/course/cs50-introduction-computer-science',
@@ -1277,6 +1309,7 @@
         provider: 'Cisco Networking Academy',
         duration: '15 Saat',
         cost: 'TAMAMEN ÜCRETSİZ',
+        targetAudience: 'Bilgisayar & Elektrik-Elektronik Mühendisliği, Adli Bilişim, Bilgi Güvenliği öğrencileri ve kişisel veri güvenliğine önem veren herkes',
         benefit: 'Uluslararası ağ ve teknoloji devi Cisco imzalı dijital rozet (Credly) ve sertifika. Bilgi işlem ve siber güvenlik sektörüne giriş kapısıdır.',
         desc: 'Kişisel verilerin korunması, ağ güvenliği, siber tehditler ve savunma taktiklerini içeren başlangıç seviyesi küresel geçerli sertifika programı.',
         url: 'https://www.netacad.com',
@@ -1293,6 +1326,7 @@
         provider: 'HubSpot Academy',
         duration: 'Yaklaşık 7 Saat',
         cost: 'TAMAMEN ÜCRETSİZ',
+        targetAudience: 'İletişim Fakültesi (Halkla İlişkiler, Gazetecilik), Edebiyat Fakültesi (Türk Dili, İngiliz Dili), İşletme ve Metin Yazarlığı/Freelance çalışanlar',
         benefit: 'Uluslararası ajanslar ve kurumsal firmalarda en çok aranan içerik üretimi ve metin yazarlığı sertifikalarından biri. LinkedIn profilinde büyük prestij sağlar.',
         desc: 'Blog yazımı, içerik stratejisi oluşturma, hikayeleştirme ve video içerik planlamasını adım adım öğreten hızlı ve etkili eğitim.',
         url: 'https://academy.hubspot.com',
@@ -1309,6 +1343,7 @@
         provider: 'TÜBİTAK BİLGEM & Sanayi Bakanlığı',
         duration: '20 Saat',
         cost: 'TAMAMEN ÜCRETSİZ',
+        targetAudience: 'Fen, Mühendislik, Tıp (Biyoenformatik), İİBF (Ekonometri) öğrencileri ve Yapay Zekayı akademik tezlerinde/projelerinde kullanacak araştırmacılar',
         benefit: 'Türkiye’nin en köklü bilim kurumu olan TÜBİTAK onaylı resmi katılım belgesi. TÜBİTAK projelerinde ve akademide öncelik sağlar.',
         desc: 'Makine öğrenmesi, veri analitiği ve üretken yapay zekanın temellerini anlaşılır örneklerle açıklayan devlet destekli sertifika programı.',
         url: 'https://yapayzeka.gov.tr',
@@ -1325,6 +1360,7 @@
         provider: 'IBM SkillsBuild',
         duration: '12-14 Saat (Esnek)',
         cost: 'TAMAMEN ÜCRETSİZ',
+        targetAudience: 'İİBF (Ekonometri, İktisat, Maliye), Endüstri Mühendisliği, İstatistik ve Bankacılık/Finans sektörünü hedefleyen öğrenciler',
         benefit: 'Küresel teknoloji devi IBM onaylı dijital rozet (Credly) ve sertifika. Bankacılık, finans, e-ticaret ve teknoloji şirketlerinin veri departmanlarında yüksek prestijlidir.',
         desc: 'Excel, SQL ve veri görselleştirme yöntemleriyle iş zekası verilerini analiz etmeyi öğreten IBM onaylı resmi kariyer sertifikası.',
         url: 'https://skillsbuild.org',
@@ -1341,6 +1377,7 @@
         provider: 'freeCodeCamp (Uluslararası)',
         duration: '300 Saat (Kendi Hızınızda / Proje Bazlı)',
         cost: 'TAMAMEN ÜCRETSİZ',
+        targetAudience: 'Güzel Sanatlar (Grafik Tasarım), Bilgisayar Programcılığı, Web Tasarımı ve Kendi web sitesini/portföyünü oluşturmak isteyen tüm bölümler',
         benefit: 'Sektör standardı 5 gerçek web projesini tamamlayarak verilen uluslararası geçerli sertifika. Junior web developer portföyü için doğrudan referanstır.',
         desc: 'Sıfırdan web sayfası geliştirmeyi, Flexbox, CSS Grid ve mobil uyumlu modern arayüzler tasarlamayı öğreten dünyanın en popüler açık kaynak yazılım akademisi.',
         url: 'https://www.freecodecamp.org/learn/2022/responsive-web-design/',
@@ -1357,6 +1394,7 @@
         provider: 'Microsoft',
         duration: '8-10 Saat',
         cost: 'TAMAMEN ÜCRETSİZ',
+        targetAudience: 'Mühendislik Fakültesi, Yönetim Bilişim Sistemleri (YBS) ve Kurumsal IT şirketlerinde sistem/bulut mimarı olmak isteyen öğrenciler',
         benefit: 'Tüm kurumsal şirketlerin kullandığı Microsoft Azure bulut sistemleri yetkinliğini onaylar. Bilgi işlem, sistem yöneticiliği ve yazılım stajlarında büyük fark yaratır.',
         desc: 'Bulut mimarisi, sanal makineler, güvenlik ve veri depolama kavramlarını interaktif laboratuvar ortamında öğreten resmi Microsoft eğitim serisi.',
         url: 'https://learn.microsoft.com/tr-tr/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/',
@@ -1373,6 +1411,7 @@
         provider: 'University of Helsinki & MinnaLearn',
         duration: '30 Saat (Bölüm Bölüm / 6 Modül)',
         cost: 'TAMAMEN ÜCRETSİZ RESMİ BELGE',
+        targetAudience: 'Hukuk Fakültesi (Yapay Zeka Hukuku), Tıp & Sağlık, Edebiyat, Felsefe, Sosyoloji ve Kodlama bilmeden Yapay Zeka öğrenmek isteyen HERKES',
         benefit: 'Avrupa Birliği destekli, üniversite onaylı ve 2 ECTS kredisine eşdeğer uluslararası sertifika. Kodlama bilmeyen her bölümden öğrenci için uygundur.',
         desc: 'Yapay zekanın mantığını, sinir ağlarını, olasılık hesaplarını ve felsefi boyutunu herkesin anlayabileceği şekilde öğreten ödüllü global eğitim.',
         url: 'https://www.elementsofai.com',
@@ -1389,6 +1428,7 @@
         provider: 'British Council',
         duration: '4 Hafta (Haftada 3-4 saat)',
         cost: 'ÜCRETSİZ EĞİTİM & KATILIM',
+        targetAudience: 'Uluslararası İlişkiler, Hukuk, İİBF, Turizm Fakültesi, Erasmus planlayan ve Yabancı şirket mülakatlarına hazırlanan tüm öğrenciler',
         benefit: 'İş görüşmeleri, profesyonel e-posta yazışmaları ve uluslararası şirket mülakatlarında İngilizceyi etkili kullanma becerisini kanıtlar.',
         desc: 'İş hayatında profesyonel iletişim, sunum yapma ve müzakere tekniklerini geliştiren British Council onaylı prestijli dil kursu.',
         url: 'https://takeielts.britishcouncil.org',
@@ -1405,6 +1445,7 @@
         provider: 'Google Cloud Skills Boost',
         duration: '8 Saat (5 Modül)',
         cost: 'TAMAMEN ÜCRETSİZ ROZET & BELGE',
+        targetAudience: 'İletişim, Tasarım, Mühendislik, Eğitim Fakültesi ve Günlük hayatında ChatGPT/Gemini gibi yapay zeka araçlarını profesyonelce kullanmak isteyenler',
         benefit: 'Google Cloud resmi dijital rozeti ve sertifikası. ChatGPT, Gemini gibi Büyük Dil Modellerinin (LLM) nasıl çalıştığını bildiğinizi kanıtlar.',
         desc: 'Üretken yapay zekanın temelleri, prompt mühendisliği ve sorumlu yapay zeka ilkelerini kapsayan resmi Google Cloud kursu.',
         url: 'https://www.cloudskillsboost.google/paths/118',
@@ -1421,6 +1462,7 @@
         provider: 'Amazon Web Services (AWS)',
         duration: '10-12 Saat',
         cost: 'TAMAMEN ÜCRETSİZ (Kredi Kartı Gerekmez)',
+        targetAudience: 'Bilgisayar Mühendisliği, Yazılım Mühendisliği, Bilişim Sistemleri ve DevOps/Bulut Mühendisi olmak isteyen öğrenciler',
         benefit: 'Dünyanın en büyük bulut altyapısı sağlayıcısı AWS onaylı resmi öğrenci rozeti ve sertifikası. Uluslararası iş ve staj ilanlarında aranılan ön koşullardandır.',
         desc: 'Üniversite öğrencilerine özel ücretsiz AWS hesabı ve pratik bulut laboratuvarları sunan Amazon resmi öğrenci programı.',
         url: 'https://aws.amazon.com/education/awseducate/',
@@ -1437,6 +1479,7 @@
         provider: 'Türk Kızılay Akademi',
         duration: '6 Saat',
         cost: 'TAMAMEN ÜCRETSİZ',
+        targetAudience: 'Spor Bilimleri Fakültesi (BESYO), Eğitim Fakültesi (Öğretmen adayları), Sağlık Bilimleri, Öğrenci Topluluk Liderleri ve Kampüsteki TÜM Öğrenciler',
         benefit: 'Her vatandaşın ve özellikle üniversite kulüp liderlerinin, yurt temsilcilerinin CV’sinde sosyal sorumluluk ve acil durum yetkinliği olarak büyük artı sağlar.',
         desc: 'Kampüste, yurtta veya günlük hayatta acil durumlarda hayat kurtaracak temel ilk yardım adımlarını görsel ve pratik anlatan Kızılay eğitimi.',
         url: 'https://akademi.kizilay.org.tr',
@@ -1476,9 +1519,9 @@
 
     // LocalStorage Synchronization
     function getListings() {
-      const stored = localStorage.getItem('sahibini_bul_hub_v4');
+      const stored = localStorage.getItem('sahibini_bul_hub_v5');
       if (!stored) {
-        localStorage.setItem('sahibini_bul_hub_v4', JSON.stringify(initialListings));
+        localStorage.setItem('sahibini_bul_hub_v5', JSON.stringify(initialListings));
         return initialListings;
       }
       try {
@@ -1489,7 +1532,7 @@
     }
 
     function saveListings(data) {
-      localStorage.setItem('sahibini_bul_hub_v4', JSON.stringify(data));
+      localStorage.setItem('sahibini_bul_hub_v5', JSON.stringify(data));
     }
 
     let activeSection = 'lost'; // 'lost', 'found', 'market', 'cert', 'ask'
@@ -1590,6 +1633,13 @@
                     <span class="spec-label">💰 Ücret Durumu</span>
                     <span class="spec-value" style="color:#059669;">Tamamen Ücretsiz</span>
                   </div>
+                </div>
+
+                <div class="cert-target-box">
+                  <div class="target-title">
+                    <span>👥</span> Hangi Bölümlere & Kimlere Fayda Sağlar?
+                  </div>
+                  <p class="target-desc">${escapeHTML(item.targetAudience || 'Tüm Üniversite Öğrencileri ve Mezunlar')}</p>
                 </div>
 
                 <div class="cert-benefit-box">
@@ -1805,6 +1855,7 @@
       let provider = '';
       let duration = '';
       let benefit = '';
+      let targetAudience = '';
       let url = '';
 
       if (category === 'market') {
@@ -1812,6 +1863,7 @@
       } else if (category === 'cert') {
         provider = document.getElementById('formProvider').value.trim() || 'Resmi Kurum';
         duration = document.getElementById('formDuration').value.trim() || 'Kendi Hızınızda';
+        targetAudience = document.getElementById('formTargetAudience').value.trim() || 'Tüm Üniversite Öğrencileri';
         benefit = document.getElementById('formBenefit').value.trim() || 'CV ve kariyer gelişimi sağlar.';
         url = document.getElementById('formCertUrl').value.trim();
       }
@@ -1827,6 +1879,7 @@
         price,
         provider,
         duration,
+        targetAudience,
         benefit,
         url,
         date: 'Az önce',
