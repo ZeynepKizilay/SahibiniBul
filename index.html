@@ -1219,7 +1219,7 @@
           >
         </div>
         <select id="locationFilter" class="filter-select" onchange="renderCards()">
-          <option value="all">Tüm Filtreler / Konumlar</option>
+          <option value="all">Tüm Fakülteler / Konumlar</option>
           <option value="Merkezi Kütüphane">Merkezi Kütüphane</option>
           <option value="Olbia Çarşısı">Olbia Çarşısı</option>
           <option value="Mühendislik Fakültesi">Mühendislik Fakültesi</option>
@@ -1230,6 +1230,10 @@
           <option value="Tıp Fakültesi / Hastane">Tıp Fakültesi</option>
           <option value="Yakut Çarşısı">Yakut Çarşısı</option>
           <option value="KYK Yurtları / Kampüs Geneli">KYK Yurtları / Kampüs</option>
+        </select>
+        <select id="securityFilter" class="filter-select" onchange="renderCards()" style="border-color: #93c5fd; background: #f0f9ff; color: #0369a1; font-weight: 700;">
+          <option value="all">Tüm İlanlar</option>
+          <option value="security_only">🛡️ Güvenliğe Bırakılanlar</option>
         </select>
       </div>
     </section>
@@ -1287,6 +1291,14 @@
           <div class="form-group" id="formPriceGroup" style="display: none;">
             <label for="formPrice">Ücret Durumu</label>
             <input type="text" id="formPrice" class="form-control" placeholder="ÜCRETSİZ / HİBE ya da 100 TL">
+          </div>
+
+          <div class="form-group" id="formSecurityGroup" style="display: none;">
+            <label for="formSecurityDrop">Güvenliğe / Danışmaya Bırakıldı mı?</label>
+            <select id="formSecurityDrop" class="form-control">
+              <option value="no">Hayır / Bende Duruyor</option>
+              <option value="yes">Evet, Güvenlik / Danışma Noktasına Bırakıldı 🛡️</option>
+            </select>
           </div>
         </div>
 
@@ -1383,12 +1395,13 @@
         category: 'lost',
         title: 'Siyah Deri Cüzdan (Öğrenci Kimliği İçinde)',
         location: 'Merkezi Kütüphane',
+        isSecurityDrop: false,
         desc: 'Zemin kat çalışma masasında unutuldu. Akdeniz kimliğim, Antalyakart ve kütüphane kartım içindeydi.',
         author: 'Burak T.',
         contact: 'IG: @burak_akdnz',
         date: 'Bugün 14:15',
         comments: [
-          { author: 'Selin A.', text: 'Danışmaya sordun mu? Bazen oraya teslim ediliyor.' }
+          { author: 'Selin A.', text: 'Kütüphane ana giriş güvenlik danışmasına baktın mı? Oraya teslim edebiliyorlar.' }
         ]
       },
       {
@@ -1396,6 +1409,7 @@
         category: 'lost',
         title: 'AirPods 2. Nesil Şarj Kutusu',
         location: 'Olbia Çarşısı',
+        isSecurityDrop: false,
         desc: 'Olbia amfi basamaklarında otururken düşürmüşüm, üzerinde şeffaf silikon kılıf var.',
         author: 'Ece D.',
         contact: '0544 *** ** 12',
@@ -1407,25 +1421,42 @@
       {
         id: '201',
         category: 'found',
-        title: 'Mavi Renkli Stanley Termos Bulundu',
+        title: 'Mavi Renkli Stanley Termos (Olbia Güvenliğe Bırakıldı)',
         location: 'Olbia Çarşısı',
-        desc: 'Olbia açık alanda bankta unutulmuş. Üzerinde stickerlar var. Sahibini arıyorum.',
+        isSecurityDrop: true,
+        securityLocation: 'Olbia Çarşısı Ana Güvenlik Kulübesi',
+        desc: 'Olbia amfi basamaklarında unutulmuş. Sahibi zarar görmesin diye doğrudan Olbia Güvenlik Kulübesine teslim ettim.',
         author: 'Eren Y.',
-        contact: 'eren.akdeniz@ogr.edu.tr',
+        contact: 'Olbia Güvenlik Noktası',
         date: 'Bugün 13:00',
         comments: [
-          { author: 'Zeynep', text: 'Güvenliğe teslim ettiniz mi acaba?' }
+          { author: 'Zeynep', text: 'Çok teşekkürler, güvenliğe bırakılması harika olmuş!' }
         ]
       },
       {
         id: '202',
         category: 'found',
-        title: 'Numaralı Kemik Gözlük & Kabı',
+        title: 'Numaralı Kemik Gözlük & Kabı (Fakülte Sekreterliğinde)',
         location: 'Mühendislik Fakültesi',
-        desc: 'B Blok 204 numaralı amfide 3. sırada bulundu. Bölüm sekreterliğine teslim edildi.',
+        isSecurityDrop: true,
+        securityLocation: 'Mühendislik B Blok Güvenlik & Sekreterlik',
+        desc: 'B Blok 204 numaralı amfide 3. sırada bulundu. Bina girişindeki güvenlik görevlisine ve bölüm sekreterliğine tutanakla teslim edildi.',
         author: 'Fatma K.',
-        contact: 'Fakülte Sekreterliğinden alabilirsiniz',
+        contact: 'B Blok Güvenlik Masası',
         date: 'Dün 16:40',
+        comments: []
+      },
+      {
+        id: '203',
+        category: 'found',
+        title: 'Akdeniz Öğrenci Kimlik Kartı & Kütüphane Kartı',
+        location: 'Merkezi Kütüphane',
+        isSecurityDrop: true,
+        securityLocation: 'Merkezi Kütüphane Giriş Danışma/Güvenlik',
+        desc: '2. kat sessiz çalışma salonunda masa üzerinde bulundu. Kütüphane turnikelerindeki ana güvenlik görevlisine bırakıldı. İsmini teyit ederek alabilirsiniz.',
+        author: 'Kütüphane Görevlisi',
+        contact: 'Kütüphane Güvenlik Masası',
+        date: 'Bugün 10:15',
         comments: []
       },
 
@@ -1863,6 +1894,16 @@
         }
       });
 
+      const secFilter = document.getElementById('securityFilter');
+      if (secFilter) {
+        if (sec === 'lost' || sec === 'found') {
+          secFilter.style.display = '';
+        } else {
+          secFilter.style.display = 'none';
+          secFilter.value = 'all';
+        }
+      }
+
       document.getElementById('currentSectionTitle').textContent = sectionTitles[sec] || 'İlanlar';
       renderCards();
     }
@@ -1891,9 +1932,12 @@
       const search = document.getElementById('searchInput').value.toLowerCase().trim();
       const location = document.getElementById('locationFilter').value;
 
+      const securityFilterVal = document.getElementById('securityFilter').value;
+
       const filtered = list.filter(item => {
         if (item.category !== activeSection) return false;
         if (location !== 'all' && item.location !== location) return false;
+        if (securityFilterVal === 'security_only' && !item.isSecurityDrop) return false;
 
         if (search) {
           const inTitle = item.title ? item.title.toLowerCase().includes(search) : false;
@@ -1905,7 +1949,8 @@
           const inSpeaker = item.speakerRole ? item.speakerRole.toLowerCase().includes(search) : false;
           const inExams = item.exams ? item.exams.toLowerCase().includes(search) : false;
           const inTarget = item.targetAudience ? item.targetAudience.toLowerCase().includes(search) : false;
-          if (!inTitle && !inDesc && !inLoc && !inAuthor && !inProvider && !inBenefit && !inSpeaker && !inExams && !inTarget) return false;
+          const inSec = item.securityLocation ? item.securityLocation.toLowerCase().includes(search) : false;
+          if (!inTitle && !inDesc && !inLoc && !inAuthor && !inProvider && !inBenefit && !inSpeaker && !inExams && !inTarget && !inSec) return false;
         }
         return true;
       });
@@ -2129,11 +2174,28 @@
           <article class="item-card">
             <div>
               <div class="card-top">
-                <span class="badge ${badgeClass}">${badgeLabel}</span>
+                <div style="display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap;">
+                  <span class="badge ${badgeClass}">${badgeLabel}</span>
+                  ${item.isSecurityDrop ? `
+                    <span class="badge" style="background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd;">
+                      🛡️ Güvenlikte
+                    </span>
+                  ` : ''}
+                </div>
                 <span class="card-time">${escapeHTML(item.date || 'Bugün')}</span>
               </div>
               <h4 class="card-title">${escapeHTML(item.title)}</h4>
               <p class="card-desc">${escapeHTML(item.desc)}</p>
+
+              ${item.isSecurityDrop ? `
+                <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 0.55rem 0.75rem; margin-bottom: 0.85rem; font-size: 0.83rem; color: #166534; display: flex; align-items: center; gap: 0.45rem;">
+                  <span>🛡️</span>
+                  <div>
+                    <strong>Teslim Edilen Nokta:</strong>
+                    <span>${escapeHTML(item.securityLocation || item.location + ' Güvenliği')}</span>
+                  </div>
+                </div>
+              ` : ''}
             </div>
 
             <div>
@@ -2232,6 +2294,7 @@
     function syncFormFields() {
       const cat = document.getElementById('formCategory').value;
       const priceGroup = document.getElementById('formPriceGroup');
+      const securityGroup = document.getElementById('formSecurityGroup');
       const certFields = document.getElementById('certSpecificFields');
       const liveFields = document.getElementById('liveSpecificFields');
       const modalTitle = document.getElementById('modalTitle');
@@ -2239,33 +2302,39 @@
 
       if (cat === 'market') {
         priceGroup.style.display = 'block';
+        securityGroup.style.display = 'none';
         certFields.style.display = 'none';
         liveFields.style.display = 'none';
         modalTitle.textContent = "Öğrenci Pazarı: Ürün Ekle / Hibe Et";
       } else if (cat === 'cert') {
         priceGroup.style.display = 'none';
+        securityGroup.style.display = 'none';
         certFields.style.display = 'block';
         liveFields.style.display = 'none';
         modalTitle.textContent = "Ücretsiz Sertifika & Kurs Tavsiyesi Ekle";
         locationSelect.value = "Online / Çevrimiçi";
       } else if (cat === 'live') {
         priceGroup.style.display = 'none';
+        securityGroup.style.display = 'none';
         certFields.style.display = 'none';
         liveFields.style.display = 'block';
         modalTitle.textContent = "Mezun Deneyimi & Sınav/Mülakat Yayını Ekle";
         locationSelect.value = "İktisadi ve İdari Bilimler Fakültesi";
       } else if (cat === 'lost') {
         priceGroup.style.display = 'none';
+        securityGroup.style.display = 'block';
         certFields.style.display = 'none';
         liveFields.style.display = 'none';
         modalTitle.textContent = "Kayıp Eşya İlanı Ekle";
       } else if (cat === 'found') {
         priceGroup.style.display = 'none';
+        securityGroup.style.display = 'block';
         certFields.style.display = 'none';
         liveFields.style.display = 'none';
         modalTitle.textContent = "Buluntu Eşya Bildir";
       } else {
         priceGroup.style.display = 'none';
+        securityGroup.style.display = 'none';
         certFields.style.display = 'none';
         liveFields.style.display = 'none';
         modalTitle.textContent = "Kampüs Panosu: Soru veya Talep Yaz";
@@ -2290,6 +2359,16 @@
       let exams = '';
       let liveTime = '';
       let liveStatus = 'upcoming';
+      let isSecurityDrop = false;
+      let securityLocation = '';
+
+      if (category === 'lost' || category === 'found') {
+        const secVal = document.getElementById('formSecurityDrop').value;
+        isSecurityDrop = (secVal === 'yes');
+        if (isSecurityDrop) {
+          securityLocation = location + ' Güvenlik / Danışma Noktası';
+        }
+      }
 
       if (category === 'market') {
         price = document.getElementById('formPrice').value.trim() || 'ÜCRETSİZ / HİBE';
@@ -2324,6 +2403,8 @@
         exams,
         liveTime,
         liveStatus,
+        isSecurityDrop,
+        securityLocation,
         url,
         date: 'Az önce',
         comments: []
