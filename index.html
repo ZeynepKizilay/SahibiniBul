@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sahibini Bul - Akdeniz Üniversitesi Kampüs Dayanışma Platformu</title>
+  <title>Sahibini Bul - Akdeniz Üniversitesi Kampüs Dayanışma & Sertifika Rehberi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,6 +27,8 @@
       --badge-market-bg: #ede9fe;
       --badge-ask: #f59e0b;
       --badge-ask-bg: #fef3c7;
+      --badge-cert: #0284c7;
+      --badge-cert-bg: #e0f2fe;
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
@@ -54,7 +56,7 @@
 
     /* Top Strip */
     .top-strip {
-      background: linear-gradient(90deg, #1e40af, #3b82f6, #06b6d4);
+      background: linear-gradient(90deg, #1e40af, #2563eb, #0284c7);
       color: #ffffff;
       font-size: 0.82rem;
       font-weight: 600;
@@ -180,15 +182,15 @@
     .hero p {
       color: var(--text-muted);
       font-size: 1.05rem;
-      max-width: 680px;
+      max-width: 740px;
       margin: 0 auto;
     }
 
-    /* 4 Interactive Hub Feature Cards */
+    /* 5 Interactive Hub Feature Cards Grid */
     .hub-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
       margin-bottom: 3rem;
     }
 
@@ -196,7 +198,7 @@
       background: var(--surface);
       border: 1.5px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 1.6rem 1.4rem;
+      padding: 1.4rem 1.15rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -234,54 +236,57 @@
       opacity: 1;
     }
 
-    /* Hub Card Accents */
+    /* Hub Card Top Borders */
     .hub-lost::before { background: #ef4444; }
     .hub-found::before { background: #10b981; }
     .hub-market::before { background: #8b5cf6; }
+    .hub-cert::before { background: #0284c7; }
     .hub-ask::before { background: #f59e0b; }
 
     .hub-icon-wrapper {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.6rem;
-      margin-bottom: 1.1rem;
+      font-size: 1.45rem;
+      margin-bottom: 0.9rem;
     }
 
     .hub-lost .hub-icon-wrapper { background: #fee2e2; color: #dc2626; }
     .hub-found .hub-icon-wrapper { background: #d1fae5; color: #059669; }
     .hub-market .hub-icon-wrapper { background: #ede9fe; color: #7c3aed; }
+    .hub-cert .hub-icon-wrapper { background: #e0f2fe; color: #0284c7; }
     .hub-ask .hub-icon-wrapper { background: #fef3c7; color: #d97706; }
 
     .hub-card h3 {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
+      line-height: 1.3;
     }
 
     .hub-card p {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
-      line-height: 1.45;
-      margin-bottom: 1.25rem;
+      line-height: 1.4;
+      margin-bottom: 1.1rem;
       flex: 1;
     }
 
     .hub-btn-row {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.4rem;
       align-items: center;
     }
 
     .hub-action-btn {
       flex: 1;
-      padding: 0.5rem 0.75rem;
+      padding: 0.45rem 0.65rem;
       border-radius: var(--radius-sm);
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 700;
       border: 1px solid var(--border);
       background: var(--surface-subtle);
@@ -290,7 +295,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.35rem;
+      gap: 0.3rem;
       transition: var(--transition);
     }
 
@@ -301,15 +306,16 @@
     }
 
     .hub-counter {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      padding: 0.2rem 0.55rem;
+      padding: 0.2rem 0.5rem;
       border-radius: 9999px;
       background: var(--surface-subtle);
       color: var(--text-muted);
+      white-space: nowrap;
     }
 
-    /* Section Control & Filters */
+    /* Section Control & Filter Bar */
     .controls-wrapper {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -388,7 +394,7 @@
       outline: none;
     }
 
-    /* Listings Grid */
+    /* Listings Grid (Standard Items) */
     .listings-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -435,6 +441,7 @@
     .badge-lost { background: var(--badge-lost-bg); color: var(--badge-lost); }
     .badge-found { background: var(--badge-found-bg); color: #059669; }
     .badge-market { background: var(--badge-market-bg); color: #7c3aed; }
+    .badge-cert { background: var(--badge-cert-bg); color: #0284c7; }
     .badge-ask { background: var(--badge-ask-bg); color: #d97706; }
 
     .card-time {
@@ -587,6 +594,114 @@
       cursor: pointer;
     }
 
+    /* Special Certificate Cards */
+    .cert-card {
+      background: var(--surface);
+      border: 1.5px solid #bae6fd;
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.06);
+      position: relative;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(2, 132, 199, 0.12);
+      border-color: #38bdf8;
+    }
+
+    .cert-provider {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #0369a1;
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    .cert-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+      margin: 1rem 0;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem;
+    }
+
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .spec-label {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .spec-value {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .cert-benefit-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.9rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .benefit-title {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #15803d;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .benefit-desc {
+      font-size: 0.84rem;
+      color: #166534;
+      line-height: 1.45;
+    }
+
+    .btn-cert-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      background: #0284c7;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.7rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .btn-cert-link:hover {
+      background: #0369a1;
+    }
+
     .empty-placeholder {
       grid-column: 1 / -1;
       text-align: center;
@@ -609,7 +724,7 @@
       border: none;
       border-radius: 20px;
       padding: 0;
-      max-width: 560px;
+      max-width: 580px;
       width: 92%;
       background: var(--surface);
       box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
@@ -632,7 +747,7 @@
     }
 
     .dialog-header h3 {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 800;
       color: var(--text);
     }
@@ -726,13 +841,19 @@
       font-weight: 700;
     }
 
-    @media (max-width: 992px) {
+    @media (max-width: 1100px) {
+      .hub-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
       .hub-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 540px) {
       .hub-grid {
         grid-template-columns: 1fr;
       }
@@ -762,9 +883,9 @@
 </head>
 <body>
 
-  <!-- Top Strip -->
+  <!-- Top Announcement Strip -->
   <div class="top-strip">
-    Akdeniz Üniversitesi Kampüsü Dayanışma, Yardımlaşma ve Paylaşım Alanı 🎓
+    Akdeniz Üniversitesi Kampüsü Dayanışma, Eşya Paylaşımı & Ücretsiz Sertifika Merkezi 🎓
   </div>
 
   <!-- Header -->
@@ -778,7 +899,7 @@
         </div>
       </a>
       <button class="header-action-btn" onclick="openCreateModal()">
-        <span>➕</span> Hızlı İlan Ver
+        <span>➕</span> Hızlı İlan / Paylaşım Yap
       </button>
     </div>
   </header>
@@ -787,21 +908,21 @@
   <main>
     <!-- Hero / Title -->
     <section class="hero">
-      <div class="hero-badge">Açık, Güvenli & Kayıt Gerektirmez</div>
-      <h2>Kampüste Dayanışma ve Paylaşım Kolaylaştı</h2>
+      <div class="hero-badge">Açık, Güvenli, Sade & Ücretsiz</div>
+      <h2>Kampüs Dayanışması ve Kariyer Fırsatları Bir Arada</h2>
       <p>
-        Kaybettiğin eşyayı anında duyur, bulduğun eşyayı sahibine ulaştır veya öğrencilerin birbirine hibe ettiği & uygun fiyata sunduğu ürünlere göz at.
+        Kaybettiğin eşyayı duyur, bulunanları sahibine kavuştur, öğrenci pazarında dayanışmaya katıl ya da <strong>CV'ne değer katacak tamamen ücretsiz, süresi ve faydaları belli sertifikaları</strong> keşfet!
       </p>
     </section>
 
-    <!-- 4 Core Hub Sections -->
+    <!-- 5 Core Hub Section Cards -->
     <section class="hub-grid">
       <!-- 1: Eşyanı mı Kaybettin? -->
       <div class="hub-card hub-lost active" id="hub-lost" onclick="selectSection('lost')">
         <div>
           <div class="hub-icon-wrapper">🏷️</div>
           <h3>Eşyanı mı Kaybettin?</h3>
-          <p>Cüzdan, kimlik, kulaklık veya notlarını nerede unuttuysan ilan aç, kampüs görsün.</p>
+          <p>Cüzdan, kart, kulaklık veya ders notlarını kampüste unuttuysan ilan aç.</p>
         </div>
         <div class="hub-btn-row">
           <button class="hub-action-btn" onclick="event.stopPropagation(); openCreateModal('lost')">
@@ -816,7 +937,7 @@
         <div>
           <div class="hub-icon-wrapper">🤝</div>
           <h3>Bir Şey mi Buldun?</h3>
-          <p>Fakültede veya çarşıda bulduğun eşyanın bilgisini ver, sahibinin yüzünü güldür.</p>
+          <p>Fakültede veya çarşıda bulduğun eşyayı bildir, sahibini buluştur.</p>
         </div>
         <div class="hub-btn-row">
           <button class="hub-action-btn" onclick="event.stopPropagation(); openCreateModal('found')">
@@ -831,7 +952,7 @@
         <div>
           <div class="hub-icon-wrapper">🎁</div>
           <h3>Hediye & Satış Yeri</h3>
-          <p>Öğrenciden öğrenciye ücretsiz hibe eşyalar, ders kitapları veya uygun fiyatlı ürünler.</p>
+          <p>Öğrenciden öğrenciye ücretsiz kitap ve eşya hibeleri ya da uygun satışlar.</p>
         </div>
         <div class="hub-btn-row">
           <button class="hub-action-btn" onclick="event.stopPropagation(); openCreateModal('market')">
@@ -841,12 +962,27 @@
         </div>
       </div>
 
-      <!-- 4: Kampüs Soru & Dayanışma Panosu (Ekstra Bölüm) -->
+      <!-- 4: ÜCRETSİZ SERTİFİKALAR (YENİ BÖLÜM) -->
+      <div class="hub-card hub-cert" id="hub-cert" onclick="selectSection('cert')">
+        <div>
+          <div class="hub-icon-wrapper">📜</div>
+          <h3>Ücretsiz Sertifikalar</h3>
+          <p>Hangi kurum veriyor, ne kadar sürüyor ve CV'de ne işe yarıyor? Hemen öğren.</p>
+        </div>
+        <div class="hub-btn-row">
+          <button class="hub-action-btn" onclick="event.stopPropagation(); selectSection('cert')">
+            <span>🎓</span> Keşfet
+          </button>
+          <span class="hub-counter" id="count-cert">6 Sertifika</span>
+        </div>
+      </div>
+
+      <!-- 5: Kampüs Soru & Pano -->
       <div class="hub-card hub-ask" id="hub-ask" onclick="selectSection('ask')">
         <div>
           <div class="hub-icon-wrapper">💡</div>
           <h3>Kampüs Panosu & Soru</h3>
-          <p>Ders notu arayanlar, ev arkadaşı arayanlar veya kampüsle ilgili soru sormak isteyenler.</p>
+          <p>Ders notu arayanlar, ev arkadaşı ve kampüs dayanışma soruları.</p>
         </div>
         <div class="hub-btn-row">
           <button class="hub-action-btn" onclick="event.stopPropagation(); openCreateModal('ask')">
@@ -860,7 +996,7 @@
     <!-- Controls & Filter Bar -->
     <section class="controls-wrapper">
       <div class="section-title-wrap">
-        <h3 id="currentSectionTitle">Eşyanı mı Kaybettin? İlanları</h3>
+        <h3 id="currentSectionTitle">Eşyamı Kaybettim İlanları</h3>
       </div>
       <div class="filter-group">
         <div class="search-box">
@@ -869,12 +1005,12 @@
             type="text" 
             id="searchInput" 
             class="search-input" 
-            placeholder="Kelime ile ara (örn: Cüzdan, Kitap, Olbia, Kulaklık)..."
+            placeholder="Kelime ile ara (örn: Cüzdan, Python, BTK, Olbia, Kütüphane)..."
             oninput="renderCards()"
           >
         </div>
         <select id="locationFilter" class="filter-select" onchange="renderCards()">
-          <option value="all">Tüm Fakülteler / Konumlar</option>
+          <option value="all">Tüm Filtreler / Konumlar</option>
           <option value="Merkezi Kütüphane">Merkezi Kütüphane</option>
           <option value="Olbia Çarşısı">Olbia Çarşısı</option>
           <option value="Mühendislik Fakültesi">Mühendislik Fakültesi</option>
@@ -889,7 +1025,7 @@
       </div>
     </section>
 
-    <!-- Listing Cards Grid -->
+    <!-- Cards Output -->
     <section class="listings-grid" id="listingsContainer">
       <!-- Injected by JavaScript -->
     </section>
@@ -905,23 +1041,24 @@
 
       <form id="listingForm" onsubmit="submitNewListing(event)">
         <div class="form-group">
-          <label for="formCategory">Hangi Bölüme İlan Veriyorsunuz?</label>
+          <label for="formCategory">Hangi Bölüme Ekliyorsunuz?</label>
           <select id="formCategory" class="form-control" onchange="syncFormFields()" required>
             <option value="lost">🏷️ Eşyamı Kaybettim (Kayıp İlanı)</option>
             <option value="found">🤝 Bir Eşya Buldum (Buluntu İlanı)</option>
             <option value="market">🎁 Hediye & Satış (Öğrenci Pazarı)</option>
+            <option value="cert">📜 Ücretsiz Sertifika / Eğitim Tavsiyesi</option>
             <option value="ask">💡 Kampüs Panosu & Soru / Talep</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="formTitle">İlan Başlığı</label>
-          <input type="text" id="formTitle" class="form-control" placeholder="Örn: Siyah Sırt Çantası, Fizik Notları..." required>
+          <label for="formTitle">Başlık</label>
+          <input type="text" id="formTitle" class="form-control" placeholder="Örn: Siyah Sırt Çantası, BTK Python Kursu..." required>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="formLocation">Konum / Fakülte</label>
+            <label for="formLocation" id="labelLocation">Konum / Alan</label>
             <select id="formLocation" class="form-control" required>
               <option value="Merkezi Kütüphane">Merkezi Kütüphane</option>
               <option value="Olbia Çarşısı">Olbia Çarşısı</option>
@@ -933,6 +1070,7 @@
               <option value="Tıp Fakültesi / Hastane">Tıp Fakültesi</option>
               <option value="Yakut Çarşısı">Yakut Çarşısı</option>
               <option value="KYK Yurtları / Kampüs Geneli">KYK Yurtları / Kampüs Geneli</option>
+              <option value="Online / Çevrimiçi">Online / Çevrimiçi (Sertifikalar İçin)</option>
             </select>
           </div>
 
@@ -942,9 +1080,31 @@
           </div>
         </div>
 
+        <!-- Certificate extra fields -->
+        <div id="certSpecificFields" style="display: none;">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formDuration">Eğitim & Alma Süresi</label>
+              <input type="text" id="formDuration" class="form-control" placeholder="Örn: 2-3 Hafta (Kendi hızınızda)">
+            </div>
+            <div class="form-group">
+              <label for="formProvider">Veren Kurum / Platform</label>
+              <input type="text" id="formProvider" class="form-control" placeholder="Örn: Google, BTK Akademi, Harvard">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="formBenefit">Ne İşe Yarar? (Kariyer & CV Katkısı)</label>
+            <input type="text" id="formBenefit" class="form-control" placeholder="Örn: LinkedIn profiline eklenebilir, staj başvurularında öne çıkarır.">
+          </div>
+          <div class="form-group">
+            <label for="formCertUrl">Kayıt / Başvuru Linki</label>
+            <input type="url" id="formCertUrl" class="form-control" placeholder="https://...">
+          </div>
+        </div>
+
         <div class="form-group">
           <label for="formDesc">Açıklama & Detaylar</label>
-          <textarea id="formDesc" class="form-control" rows="3" placeholder="Eşyanın özellikleri, tam yeri veya teslim şartları..." required></textarea>
+          <textarea id="formDesc" class="form-control" rows="3" placeholder="Detaylar, eşyanın özellikleri veya sertifika içeriği..." required></textarea>
         </div>
 
         <div class="form-row">
@@ -960,7 +1120,7 @@
 
         <div class="dialog-footer">
           <button type="button" class="btn-cancel" onclick="closeCreateModal()">Vazgeç</button>
-          <button type="submit" class="btn-submit">İlanı Paylaş</button>
+          <button type="submit" class="btn-submit">Yayınla</button>
         </div>
       </form>
     </div>
@@ -969,17 +1129,17 @@
   <!-- Footer -->
   <footer>
     <p>
-      <strong>Sahibini Bul</strong> &bull; Akdeniz Üniversitesi Kampüsü İçin Açık Dayanışma Platformu
+      <strong>Sahibini Bul & Akdeniz Kampüs</strong> &bull; Dayanışma, İlan ve Ücretsiz Sertifika Rehberi
     </p>
     <p style="margin-top: 0.4rem; font-size: 0.82rem;">
-      Geliştirici: <a href="https://github.com/ZeynepKizilay" target="_blank" rel="noopener">Zeynep Kızılay</a> &bull; Kayıt şartı olmadan herkes yazı yazabilir ve ilan verebilir.
+      Geliştirici: <a href="https://github.com/ZeynepKizilay" target="_blank" rel="noopener">Zeynep Kızılay</a> &bull; Kayıt şartı olmadan herkes yazı yazabilir, ilan ve öneri paylaşabilir.
     </p>
   </footer>
 
   <script>
-    // Initial campus data
+    // Initial data with real Free Certificates included
     const initialListings = [
-      // 1: Eşyanı mı Kaybettin?
+      // --- 1: Eşyanı mı Kaybettin? ---
       {
         id: '101',
         category: 'lost',
@@ -1005,7 +1165,7 @@
         comments: []
       },
 
-      // 2: Bir Şey mi Buldun?
+      // --- 2: Bir Şey mi Buldun? ---
       {
         id: '201',
         category: 'found',
@@ -1031,7 +1191,7 @@
         comments: []
       },
 
-      // 3: Hediye & Satış Yeri
+      // --- 3: Hediye & Satış Yeri ---
       {
         id: '301',
         category: 'market',
@@ -1059,13 +1219,113 @@
         comments: []
       },
 
-      // 4: Kampüs Panosu & Soru (Farklı Seçenek)
+      // --- 4: Ücretsiz Sertifikalar ---
+      {
+        id: 'cert-1',
+        category: 'cert',
+        title: 'Google Dijital Pazarlamanın Temelleri',
+        provider: 'Google Dijital Atölye',
+        duration: '40 Saat (Esnek / Kendi Hızınızda)',
+        cost: 'TAMAMEN ÜCRETSİZ',
+        benefit: 'Tüm dünyada geçerli resmi Google sertifikası. CV’de ve LinkedIn’de doğrudan doğrulanabilir. Pazarlama, e-ticaret ve sosyal medya staj başvurularında çok büyük avantaj sağlar.',
+        desc: '26 modülden oluşan, sıfırdan dijital pazarlama, SEO, reklam yönetimi ve analiz öğreten dünyanın en popüler ücretsiz resmi sertifika programı.',
+        url: 'https://learndigital.withgoogle.com/dijitalatolye',
+        location: 'Online / Çevrimiçi',
+        author: 'Kariyer Kulübü',
+        contact: 'Online Erişim',
+        date: 'Öne Çıkan',
+        comments: [
+          { author: 'Elif M.', text: 'Sınavı son modülden sonra oluyor, geçince anında PDF sertifika veriyor.' }
+        ]
+      },
+      {
+        id: 'cert-2',
+        category: 'cert',
+        title: 'BTK Akademi & e-Devlet Onaylı Python Programlama',
+        provider: 'BTK Akademi (T.C. Ulaştırma Bakanlığı)',
+        duration: 'Yaklaşık 25-30 Saat',
+        cost: 'TAMAMEN ÜCRETSİZ',
+        benefit: 'e-Devlet üzerinden sorgulanabilir ve doğrulanabilir resmi T.C. sertifikası. Kamu ve özel sektör stajlarında, teknik mülakatlarda doğrudan resmi referans sayılır.',
+        desc: 'Temel programlama mantığından başlayarak veri yapıları, nesne yönelimli programlama ve proje geliştirmeyi kapsayan kapsamlı Türkçe eğitim.',
+        url: 'https://www.btkakademi.gov.tr',
+        location: 'Online / Çevrimiçi',
+        author: 'Bilişim Topluluğu',
+        contact: 'e-Devlet ile Giriş',
+        date: 'Öne Çıkan',
+        comments: []
+      },
+      {
+        id: 'cert-3',
+        category: 'cert',
+        title: 'Harvard Üniversitesi CS50: Bilgisayar Bilimlerine Giriş',
+        provider: 'Harvard University (edX)',
+        duration: '10-12 Hafta (Haftalık 6-8 saat)',
+        cost: 'ÜCRETSİZ ERİŞİM & PROJE BELGESİ',
+        benefit: 'Dünyanın en prestijli üniversitesinin bilgisayar bilimi temelleri. Algoritma, C, Python, SQL ve Web geliştirme yeteneğini uluslararası düzeyde kanıtlar.',
+        desc: 'Harvard profesörü David J. Malan tarafından verilen, yazılım dünyasının en saygın başlangıç programı. Ödevleri tamamlayarak başarı belgesi alınabiliyor.',
+        url: 'https://pll.harvard.edu/course/cs50-introduction-computer-science',
+        location: 'Online / Çevrimiçi',
+        author: 'Mühendislik Öğrencisi',
+        contact: 'edX Platformu',
+        date: 'Öne Çıkan',
+        comments: []
+      },
+      {
+        id: 'cert-4',
+        category: 'cert',
+        title: 'Cisco Networking Academy: Siber Güvenliğe Giriş',
+        provider: 'Cisco Networking Academy',
+        duration: '15 Saat',
+        cost: 'TAMAMEN ÜCRETSİZ',
+        benefit: 'Uluslararası ağ ve teknoloji devi Cisco imzalı dijital rozet (Credly) ve sertifika. Bilgi işlem ve siber güvenlik sektörüne giriş kapısıdır.',
+        desc: 'Kişisel verilerin korunması, ağ güvenliği, siber tehditler ve savunma taktiklerini içeren başlangıç seviyesi küresel geçerli sertifika programı.',
+        url: 'https://www.netacad.com',
+        location: 'Online / Çevrimiçi',
+        author: 'Siber Güvenlik Kulübü',
+        contact: 'NetAcad Kayıt',
+        date: 'Yeni',
+        comments: []
+      },
+      {
+        id: 'cert-5',
+        category: 'cert',
+        title: 'HubSpot Akademi: İçerik Pazarlaması (Content Marketing)',
+        provider: 'HubSpot Academy',
+        duration: 'Yaklaşık 7 Saat',
+        cost: 'TAMAMEN ÜCRETSİZ',
+        benefit: 'Uluslararası ajanslar ve kurumsal firmalarda en çok aranan içerik üretimi ve metin yazarlığı sertifikalarından biri. LinkedIn profilinde büyük prestij sağlar.',
+        desc: 'Blog yazımı, içerik stratejisi oluşturma, hikayeleştirme ve video içerik planlamasını adım adım öğreten hızlı ve etkili eğitim.',
+        url: 'https://academy.hubspot.com',
+        location: 'Online / Çevrimiçi',
+        author: 'İletişim Fakültesi',
+        contact: 'HubSpot',
+        date: 'Popüler',
+        comments: []
+      },
+      {
+        id: 'cert-6',
+        category: 'cert',
+        title: 'TÜBİTAK BİLGEM: Temel Yapay Zeka Eğitimi',
+        provider: 'TÜBİTAK BİLGEM & Sanayi Bakanlığı',
+        duration: '20 Saat',
+        cost: 'TAMAMEN ÜCRETSİZ',
+        benefit: 'Türkiye’nin en köklü bilim kurumu olan TÜBİTAK onaylı resmi katılım belgesi. TÜBİTAK projelerinde ve akademide öncelik sağlar.',
+        desc: 'Makine öğrenmesi, veri analitiği ve üretken yapay zekanın temellerini anlaşılır örneklerle açıklayan devlet destekli sertifika programı.',
+        url: 'https://yapayzeka.gov.tr',
+        location: 'Online / Çevrimiçi',
+        author: 'Akdeniz Yapay Zeka',
+        contact: 'TÜBİTAK Platformu',
+        date: 'Güncel',
+        comments: []
+      },
+
+      // --- 5: Kampüs Panosu & Soru ---
       {
         id: '401',
         category: 'ask',
-        title: 'Algoritma ve Programlama Dersi İçin Not Arayan Var mı?',
+        title: 'Algoritma ve Programlama Dersi Notları (PDF)',
         location: 'Mühendislik Fakültesi',
-        desc: 'Vize öncesi çıkmış sorular ve elle tuttuğum tüm temiz notları PDF olarak paylaşabilirim, isteyenler yorum yazsın.',
+        desc: 'Vize öncesi çıkmış sorular ve elle tuttuğum tüm temiz notları PDF olarak paylaşabilirim, isteyenler yorum yazsın link göndereyim.',
         author: 'Alperen Ç.',
         contact: 'alperen@ogr.akdeniz.edu.tr',
         date: 'Bugün 10:00',
@@ -1078,7 +1338,7 @@
         category: 'ask',
         title: 'Kültür Mahallesi 2+1 Eve Ev Arkadaşı',
         location: 'KYK Yurtları / Kampüs Geneli',
-        desc: 'Mühendislik öğrencisiyim, eve çıkacak düzenli ve sigara içmeyen bir arkadaş arıyorum.',
+        desc: 'Mühendislik 3. sınıf öğrencisiyim, eve çıkacak düzenli ve sigara içmeyen bir arkadaş arıyorum.',
         author: 'Emre B.',
         contact: 'IG: @emre_akd',
         date: 'Dün 18:30',
@@ -1086,11 +1346,11 @@
       }
     ];
 
-    // LocalStorage helper
+    // LocalStorage Synchronization
     function getListings() {
-      const stored = localStorage.getItem('sahibini_bul_hub_v2');
+      const stored = localStorage.getItem('sahibini_bul_hub_v3');
       if (!stored) {
-        localStorage.setItem('sahibini_bul_hub_v2', JSON.stringify(initialListings));
+        localStorage.setItem('sahibini_bul_hub_v3', JSON.stringify(initialListings));
         return initialListings;
       }
       try {
@@ -1101,23 +1361,24 @@
     }
 
     function saveListings(data) {
-      localStorage.setItem('sahibini_bul_hub_v2', JSON.stringify(data));
+      localStorage.setItem('sahibini_bul_hub_v3', JSON.stringify(data));
     }
 
-    let activeSection = 'lost'; // 'lost', 'found', 'market', 'ask'
+    let activeSection = 'lost'; // 'lost', 'found', 'market', 'cert', 'ask'
 
     const sectionTitles = {
       lost: '🏷️ Eşyamı Kaybettim İlanları',
       found: '🤝 Bir Şey Buldum İlanları',
       market: '🎁 Hediye & Satış Yeri (Öğrenci Pazarı)',
+      cert: '📜 Ücretsiz Sertifikalar & Kariyer Rehberi',
       ask: '💡 Kampüs Panosu, Soru & Dayanışma'
     };
 
     function selectSection(sec) {
       activeSection = sec;
 
-      // Update card active classes
-      ['lost', 'found', 'market', 'ask'].forEach(s => {
+      // Update hub card active state
+      ['lost', 'found', 'market', 'cert', 'ask'].forEach(s => {
         const card = document.getElementById(`hub-${s}`);
         if (card) {
           card.classList.toggle('active', s === sec);
@@ -1130,7 +1391,7 @@
 
     function updateSectionCounts() {
       const list = getListings();
-      const countMap = { lost: 0, found: 0, market: 0, ask: 0 };
+      const countMap = { lost: 0, found: 0, market: 0, cert: 0, ask: 0 };
       list.forEach(i => {
         if (countMap[i.category] !== undefined) {
           countMap[i.category]++;
@@ -1140,6 +1401,7 @@
       document.getElementById('count-lost').textContent = `${countMap.lost} İlan`;
       document.getElementById('count-found').textContent = `${countMap.found} İlan`;
       document.getElementById('count-market').textContent = `${countMap.market} İlan`;
+      document.getElementById('count-cert').textContent = `${countMap.cert} Sertifika`;
       document.getElementById('count-ask').textContent = `${countMap.ask} Paylaşım`;
     }
 
@@ -1155,11 +1417,13 @@
         if (location !== 'all' && item.location !== location) return false;
 
         if (search) {
-          const inTitle = item.title.toLowerCase().includes(search);
-          const inDesc = item.desc.toLowerCase().includes(search);
-          const inLoc = item.location.toLowerCase().includes(search);
-          const inAuthor = item.author.toLowerCase().includes(search);
-          if (!inTitle && !inDesc && !inLoc && !inAuthor) return false;
+          const inTitle = item.title ? item.title.toLowerCase().includes(search) : false;
+          const inDesc = item.desc ? item.desc.toLowerCase().includes(search) : false;
+          const inLoc = item.location ? item.location.toLowerCase().includes(search) : false;
+          const inAuthor = item.author ? item.author.toLowerCase().includes(search) : false;
+          const inProvider = item.provider ? item.provider.toLowerCase().includes(search) : false;
+          const inBenefit = item.benefit ? item.benefit.toLowerCase().includes(search) : false;
+          if (!inTitle && !inDesc && !inLoc && !inAuthor && !inProvider && !inBenefit) return false;
         }
         return true;
       });
@@ -1169,12 +1433,85 @@
           <div class="empty-placeholder">
             <span>📭</span>
             <h3>Bu alanda henüz bir kayıt bulunmuyor</h3>
-            <p>Hemen sağ üstten veya yukarıdaki kutudan ilk ilanı/soruyu siz paylaşabilirsiniz!</p>
+            <p>Hemen sağ üstteki butondan ilk ilanı, soruyu veya sertifika önerisini siz ekleyebilirsiniz!</p>
           </div>
         `;
         return;
       }
 
+      // Check if displaying Certificates (Special Rich Design)
+      if (activeSection === 'cert') {
+        container.innerHTML = filtered.map(item => {
+          const comments = item.comments || [];
+          return `
+            <article class="cert-card">
+              <div>
+                <div class="card-top">
+                  <span class="cert-provider">🏛️ ${escapeHTML(item.provider || 'Kurumsal')}</span>
+                  <span class="badge badge-cert">ÜCRETSİZ SERTİFİKA</span>
+                </div>
+                <h4 class="card-title">${escapeHTML(item.title)}</h4>
+                <p class="card-desc">${escapeHTML(item.desc)}</p>
+
+                <div class="cert-specs">
+                  <div class="spec-item">
+                    <span class="spec-label">⏱️ Ne Kadar Sürer?</span>
+                    <span class="spec-value">${escapeHTML(item.duration || 'Esnek / Kendi Hızınızda')}</span>
+                  </div>
+                  <div class="spec-item">
+                    <span class="spec-label">💰 Ücret Durumu</span>
+                    <span class="spec-value" style="color:#059669;">Tamamen Ücretsiz</span>
+                  </div>
+                </div>
+
+                <div class="cert-benefit-box">
+                  <div class="benefit-title">
+                    <span>🎯</span> Ne İşe Yarar? (CV & Kariyer Katkısı)
+                  </div>
+                  <p class="benefit-desc">${escapeHTML(item.benefit || 'CV güçlendirir ve doğrulanabilir sertifika sağlar.')}</p>
+                </div>
+              </div>
+
+              <div>
+                ${item.url ? `
+                  <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="btn-cert-link">
+                    🚀 Ücretsiz Başla & Sertifikanı Al
+                  </a>
+                ` : ''}
+
+                <div class="card-bottom" style="margin-top: 1rem;">
+                  <div class="author-info">
+                    <div class="author-circle">🎓</div>
+                    <span>Öneri: ${escapeHTML(item.author || 'Öğrenci')}</span>
+                  </div>
+                  <button class="btn-discuss" onclick="toggleCommentsDrawer('${item.id}')">
+                    💬 Yorumlar (${comments.length})
+                  </button>
+                </div>
+
+                <!-- Comments Box -->
+                <div class="comments-box" id="drawer-${item.id}">
+                  <div class="comment-list">
+                    ${comments.length > 0 ? comments.map(c => `
+                      <div class="comment-bubble">
+                        <strong>${escapeHTML(c.author)}:</strong>
+                        <span>${escapeHTML(c.text)}</span>
+                      </div>
+                    `).join('') : '<p style="font-size:0.8rem; color:var(--text-muted);">Henüz yorum yapılmamış. Eğitimi aldıysanız tecrübenizi paylaşın!</p>'}
+                  </div>
+                  <form class="comment-input-row" onsubmit="postComment(event, '${item.id}')">
+                    <input type="text" placeholder="Görüş veya soru yaz..." required>
+                    <button type="submit">Gönder</button>
+                  </form>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+        return;
+      }
+
+      // Default Standard Cards (Lost, Found, Market, Ask)
       container.innerHTML = filtered.map(item => {
         let badgeClass = 'badge-lost';
         let badgeLabel = 'Kayıp';
@@ -1300,19 +1637,30 @@
     function syncFormFields() {
       const cat = document.getElementById('formCategory').value;
       const priceGroup = document.getElementById('formPriceGroup');
+      const certFields = document.getElementById('certSpecificFields');
       const modalTitle = document.getElementById('modalTitle');
+      const locationSelect = document.getElementById('formLocation');
 
       if (cat === 'market') {
         priceGroup.style.display = 'block';
+        certFields.style.display = 'none';
         modalTitle.textContent = "Öğrenci Pazarı: Ürün Ekle / Hibe Et";
+      } else if (cat === 'cert') {
+        priceGroup.style.display = 'none';
+        certFields.style.display = 'block';
+        modalTitle.textContent = "Ücretsiz Sertifika & Kurs Tavsiyesi Ekle";
+        locationSelect.value = "Online / Çevrimiçi";
       } else if (cat === 'lost') {
         priceGroup.style.display = 'none';
+        certFields.style.display = 'none';
         modalTitle.textContent = "Kayıp Eşya İlanı Ekle";
       } else if (cat === 'found') {
         priceGroup.style.display = 'none';
+        certFields.style.display = 'none';
         modalTitle.textContent = "Buluntu Eşya Bildir";
       } else {
         priceGroup.style.display = 'none';
+        certFields.style.display = 'none';
         modalTitle.textContent = "Kampüs Panosu: Soru veya Talep Yaz";
       }
     }
@@ -1326,9 +1674,18 @@
       const author = document.getElementById('formAuthor').value.trim();
       const contact = document.getElementById('formContact').value.trim();
       let price = '';
+      let provider = '';
+      let duration = '';
+      let benefit = '';
+      let url = '';
 
       if (category === 'market') {
         price = document.getElementById('formPrice').value.trim() || 'ÜCRETSİZ / HİBE';
+      } else if (category === 'cert') {
+        provider = document.getElementById('formProvider').value.trim() || 'Resmi Kurum';
+        duration = document.getElementById('formDuration').value.trim() || 'Kendi Hızınızda';
+        benefit = document.getElementById('formBenefit').value.trim() || 'CV ve kariyer gelişimi sağlar.';
+        url = document.getElementById('formCertUrl').value.trim();
       }
 
       const newItem = {
@@ -1340,6 +1697,10 @@
         author,
         contact,
         price,
+        provider,
+        duration,
+        benefit,
+        url,
         date: 'Az önce',
         comments: []
       };
@@ -1365,7 +1726,7 @@
       );
     }
 
-    // Backdrop click close
+    // Close on backdrop click
     modal.addEventListener('click', (e) => {
       const rect = modal.getBoundingClientRect();
       const inBox = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height
