@@ -186,11 +186,11 @@
       margin: 0 auto;
     }
 
-    /* 5 Interactive Hub Feature Cards Grid */
+    /* 6 Interactive Hub Feature Cards Grid */
     .hub-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1rem;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.9rem;
       margin-bottom: 3rem;
     }
 
@@ -241,6 +241,7 @@
     .hub-found::before { background: #10b981; }
     .hub-market::before { background: #8b5cf6; }
     .hub-cert::before { background: #0284c7; }
+    .hub-live::before { background: #e11d48; }
     .hub-ask::before { background: #f59e0b; }
 
     .hub-icon-wrapper {
@@ -258,7 +259,23 @@
     .hub-found .hub-icon-wrapper { background: #d1fae5; color: #059669; }
     .hub-market .hub-icon-wrapper { background: #ede9fe; color: #7c3aed; }
     .hub-cert .hub-icon-wrapper { background: #e0f2fe; color: #0284c7; }
+    .hub-live .hub-icon-wrapper { background: #ffe4e6; color: #e11d48; }
     .hub-ask .hub-icon-wrapper { background: #fef3c7; color: #d97706; }
+
+    /* Pulse dot for live stream */
+    .live-pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #e11d48;
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulse-ring {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
 
     .hub-card h3 {
       font-size: 1.05rem;
@@ -727,6 +744,156 @@
       background: #0369a1;
     }
 
+    /* Live Session & Experience Cards */
+    .live-card {
+      background: var(--surface);
+      border: 1.5px solid #fecdd3;
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(225, 29, 72, 0.05);
+      position: relative;
+    }
+
+    .live-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(225, 29, 72, 0.12);
+      border-color: #fda4af;
+    }
+
+    .live-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 0.25rem 0.7rem;
+      border-radius: 9999px;
+      letter-spacing: 0.03em;
+    }
+
+    .status-active {
+      background: #ffe4e6;
+      color: #be123c;
+      border: 1px solid #fecdd3;
+    }
+
+    .status-upcoming {
+      background: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+    }
+
+    .status-archive {
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #cbd5e1;
+    }
+
+    .speaker-profile {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      background: #fff1f2;
+      border: 1px solid #ffe4e6;
+      border-radius: var(--radius-sm);
+      padding: 0.85rem;
+      margin: 0.9rem 0;
+    }
+
+    .speaker-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fb7185, #e11d48);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .speaker-meta h5 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #881337;
+    }
+
+    .speaker-meta p {
+      font-size: 0.8rem;
+      color: #9f1239;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .exam-tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .exam-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: #f1f5f9;
+      color: #334155;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .live-topics-box {
+      background: #fafaf9;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .live-topics-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #44403c;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .live-topics-desc {
+      font-size: 0.83rem;
+      color: #57534e;
+      line-height: 1.45;
+    }
+
+    .btn-join-live {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      background: linear-gradient(135deg, #e11d48, #be123c);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.7rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(225, 29, 72, 0.25);
+      transition: var(--transition);
+    }
+
+    .btn-join-live:hover {
+      background: #be123c;
+      transform: translateY(-1px);
+    }
+
     .empty-placeholder {
       grid-column: 1 / -1;
       text-align: center;
@@ -936,7 +1103,7 @@
       <div class="hero-badge">Açık, Güvenli, Sade & Ücretsiz</div>
       <h2>Kampüs Dayanışması ve Kariyer Fırsatları Bir Arada</h2>
       <p>
-        Kaybettiğin eşyayı duyur, bulunanları sahibine kavuştur, öğrenci pazarında dayanışmaya katıl ya da <strong>CV'ne değer katacak tamamen ücretsiz, süresi ve faydaları belli sertifikaları</strong> keşfet!
+        Kaybettiğin eşyayı duyur, öğrenci pazarında dayanışmaya katıl, ücretsiz sertifikaları keşfet ya da <strong>ataması yapılmış eski Akdeniz mezunlarıyla canlı yayınlarda buluşup KPSS, Kaymakamlık, Sayıştay ve İİBF sınav/mülakat tecrübelerini</strong> ilk ağızdan dinle!
       </p>
     </section>
 
@@ -1002,7 +1169,24 @@
         </div>
       </div>
 
-      <!-- 5: Kampüs Soru & Pano -->
+      <!-- 5: CANLI YAYIN: MEZUN VE ATANANLARIN DENEYİMLERİ (YENİ BÖLÜM) -->
+      <div class="hub-card hub-live" id="hub-live" onclick="selectSection('live')">
+        <div>
+          <div class="hub-icon-wrapper">
+            <span class="live-pulse-dot" style="margin-right: 2px;"></span> 🎙️
+          </div>
+          <h3>Mezun & Atananlar</h3>
+          <p>KPSS, Kaymakamlık, Sayıştay, Müfettişlik ve İİBF mülakat deneyimleri & canlı yayınlar.</p>
+        </div>
+        <div class="hub-btn-row">
+          <button class="hub-action-btn" onclick="event.stopPropagation(); selectSection('live')">
+            <span>🔴</span> Yayınlar
+          </button>
+          <span class="hub-counter" id="count-live">5 Oturum</span>
+        </div>
+      </div>
+
+      <!-- 6: Kampüs Soru & Pano -->
       <div class="hub-card hub-ask" id="hub-ask" onclick="selectSection('ask')">
         <div>
           <div class="hub-icon-wrapper">💡</div>
@@ -1072,36 +1256,61 @@
             <option value="found">🤝 Bir Eşya Buldum (Buluntu İlanı)</option>
             <option value="market">🎁 Hediye & Satış (Öğrenci Pazarı)</option>
             <option value="cert">📜 Ücretsiz Sertifika / Eğitim Tavsiyesi</option>
+            <option value="live">🎙️ Mezun Deneyimi / Canlı Yayın & Mülakat Paylaşımı</option>
             <option value="ask">💡 Kampüs Panosu & Soru / Talep</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="formTitle">Başlık</label>
-          <input type="text" id="formTitle" class="form-control" placeholder="Örn: Siyah Sırt Çantası, BTK Python Kursu..." required>
+          <input type="text" id="formTitle" class="form-control" placeholder="Örn: Siyah Sırt Çantası, Gelir Uzmanlığı Sınav & Mülakat Deneyimi..." required>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="formLocation" id="labelLocation">Konum / Alan</label>
+            <label for="formLocation" id="labelLocation">Konum / Alan / Fakülte</label>
             <select id="formLocation" class="form-control" required>
+              <option value="İktisadi ve İdari Bilimler Fakültesi">İİBF (Maliye, İktisat, Kamu, İşletme)</option>
+              <option value="Hukuk Fakültesi">Hukuk Fakültesi</option>
+              <option value="Mühendislik Fakültesi">Mühendislik Fakültesi</option>
               <option value="Merkezi Kütüphane">Merkezi Kütüphane</option>
               <option value="Olbia Çarşısı">Olbia Çarşısı</option>
-              <option value="Mühendislik Fakültesi">Mühendislik Fakültesi</option>
-              <option value="İktisadi ve İdari Bilimler Fakültesi">İİBF</option>
-              <option value="Hukuk Fakültesi">Hukuk Fakültesi</option>
               <option value="Edebiyat Fakültesi">Edebiyat Fakültesi</option>
               <option value="Fen Fakültesi">Fen Fakültesi</option>
               <option value="Tıp Fakültesi / Hastane">Tıp Fakültesi</option>
               <option value="Yakut Çarşısı">Yakut Çarşısı</option>
               <option value="KYK Yurtları / Kampüs Geneli">KYK Yurtları / Kampüs Geneli</option>
-              <option value="Online / Çevrimiçi">Online / Çevrimiçi (Sertifikalar İçin)</option>
+              <option value="Online / Çevrimiçi">Online / Çevrimiçi Yayın</option>
             </select>
           </div>
 
           <div class="form-group" id="formPriceGroup" style="display: none;">
             <label for="formPrice">Ücret Durumu</label>
             <input type="text" id="formPrice" class="form-control" placeholder="ÜCRETSİZ / HİBE ya da 100 TL">
+          </div>
+        </div>
+
+        <!-- Live Stream & Alumni Experience extra fields -->
+        <div id="liveSpecificFields" style="display: none;">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formSpeakerRole">Mezun Ünvanı / Atandığı Kurum</label>
+              <input type="text" id="formSpeakerRole" class="form-control" placeholder="Örn: 2022 Mezunu / Gelir Uzman Yardımcısı (GİB)">
+            </div>
+            <div class="form-group">
+              <label for="formExams">İlgili Sınavlar / Puan Türleri</label>
+              <input type="text" id="formExams" class="form-control" placeholder="Örn: KPSS A Grubu, P48, GUY Yazılı, Kurum Sınavı">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formLiveTime">Yayın Tarihi & Saati / Durum</label>
+              <input type="text" id="formLiveTime" class="form-control" placeholder="Örn: Bu Cuma 20:30 (Canlı) veya Kayıt / Tecrübe Notu">
+            </div>
+            <div class="form-group">
+              <label for="formLiveLink">Canlı Yayın / Kayıt Linki (YouTube/Meet/Zoom)</label>
+              <input type="url" id="formLiveLink" class="form-control" placeholder="https://meet.google.com/... veya https://youtube.com/...">
+            </div>
           </div>
         </div>
 
@@ -1490,7 +1699,104 @@
         comments: []
       },
 
-      // --- 5: Kampüs Panosu & Soru ---
+      // --- 5: Canlı Yayın & Mezun Sınav/Mülakat Deneyimleri ---
+      {
+        id: 'live-1',
+        category: 'live',
+        title: 'Akdeniz İİBF’den Kaymakamlığa: Yazılı Sınav & Mülakat Yolculuğu',
+        speakerRole: '2020 Akdeniz Kamu Yönetimi Mezunu / Görevde İlçe Kaymakamı',
+        exams: 'Kaymakamlık Adaylığı, KPSS P37, Mülakat Taktikleri',
+        location: 'İktisadi ve İdari Bilimler Fakültesi',
+        liveTime: 'Bu Cuma 20:30 (Canlı Yayın)',
+        liveStatus: 'active',
+        url: 'https://meet.google.com/akd-kymk-iibf',
+        desc: 'Akdeniz Üniversitesi İİBF amfilerinden ilçeye uzanan süreç. Hangi kaynaklardan çalıştım? İdare Hukuku ve Anayasa sorularını nasıl çözdüm? Bakanlık mülakatında neler soruldu? Tüm sorularınızı canlı yayında cevaplıyorum.',
+        targetAudience: 'İİBF (Kamu Yönetimi, İktisat, Maliye) ve Hukuk Fakültesi Öğrencileri',
+        benefit: 'Kaymakamlık yazılı sınavının püf noktaları, mülakat heyetinin dikkat ettiği duruş, beden dili ve güncel mevzuat taktikleri.',
+        author: 'Kaymakam Mehmet B.',
+        contact: 'Canlı Soru-Cevap Odası',
+        date: 'Bugün',
+        comments: [
+          { author: 'Caner D.', text: 'Hocam kaynak listesini de yayında paylaşabilir misiniz?' },
+          { author: 'Mehmet B.', text: 'Tabii ki, kullandığım tüm kanun özetlerini ve soru bankalarını tek tek ekranda göstereceğim.' }
+        ]
+      },
+      {
+        id: 'live-2',
+        category: 'live',
+        title: 'Sayıştay Denetçi Yardımcılığı Eleme & Klasik Yazılı Sınavı Deneyimi',
+        speakerRole: '2021 Akdeniz Maliye Mezunu / Sayıştay Denetçi Yardımcısı',
+        exams: 'Sayıştay Eleme (KPSS), Klasik Yazılı Sınav, Komisyon Mülakatı',
+        location: 'İktisadi ve İdari Bilimler Fakültesi',
+        liveTime: 'Pazar 19:00 (Canlı Soru-Cevap)',
+        liveStatus: 'upcoming',
+        url: 'https://youtube.com/live/akdeniz-sayistay-sohbet',
+        desc: 'Sayıştay sınavı Türkiye’nin en zor klasik sınavlarından biridir. İktisat, Maliye ve Hukuk klasik yazılı sınavında kağıt nasıl doldurulur? Çıkmış Sayıştay sorularına nasıl yaklaşılmalı? Ankara’daki mülakat ortamı nasıldı?',
+        targetAudience: 'Maliye, İktisat, İşletme ve Hukuk Öğrencileri',
+        benefit: 'Klasik sınavda puan getiren akademik yazı dili, Sayıştay denetçiliği mesleğinin imkanları ve maaş/özlük hakları.',
+        author: 'Denetçi Ayşe T.',
+        contact: 'YouTube Canlı',
+        date: 'Yaklaşan',
+        comments: []
+      },
+      {
+        id: 'live-3',
+        category: 'live',
+        title: 'Gelir Uzman Yardımcılığı (GUY) & Vergi Müfettişliği Sınav Stratejileri',
+        speakerRole: '2022 Akdeniz İktisat Mezunu / Gelir Uzman Yrd. (Antalya Vergi Dairesi Bşk.)',
+        exams: 'KPSS A Grubu (P48, P19), GUY Kurum Sınavı, VDK Yazılı',
+        location: 'İktisadi ve İdari Bilimler Fakültesi',
+        liveTime: 'Kayıtlı Yayın & Not Özeti',
+        liveStatus: 'archive',
+        url: 'https://youtube.com/watch?v=akdeniz-guy-rehber',
+        desc: 'KPSS A Grubu P48 puanıyla Antalya’ya nasıl atandım? Vergi hukuku, TVS, muhasebe monografileri nasıl çalışılır? Antalya Defterdarlığı ve Vergi Dairesi Başkanlığı çalışma koşulları.',
+        targetAudience: 'İİBF (Tüm Bölümler) ve Meslek Sınavlarına Hazırlanan Son Sınıflar',
+        benefit: 'GUY kurum yazılı sınavında sık sorulan vergi konuları ve sözlü mülakatta sorulan ekonomi sorularının listesi.',
+        author: 'Murat S. (GUY)',
+        contact: 'Antalya Vergi Dairesi',
+        date: 'Kaydedildi',
+        comments: [
+          { author: 'Burak', text: 'Çok faydalı bir kayıt olmuş, monografi çözümleri harika.' }
+        ]
+      },
+      {
+        id: 'live-4',
+        category: 'live',
+        title: 'İdari Yargı Hakimliği Sınavı & Adalet Bakanlığı Mülakatı',
+        speakerRole: '2019 Akdeniz Hukuk & İİBF ÇAP Mezunu / İdare Mahkemesi Hakimi',
+        exams: 'İdari Yargı Ön Eleme, Alan Bilgisi, Bakanlık Mülakatı',
+        location: 'Hukuk Fakültesi',
+        liveTime: 'Önümüzdeki Salı 21:00 (Canlı)',
+        liveStatus: 'upcoming',
+        url: 'https://meet.google.com/idari-yargi-akdeniz',
+        desc: 'İİBF mezunlarına tanınan %20 idari hakimlik kontenjanı nasıl değerlendirilir? Danıştay kararları, İYUK ve Vergi Yargılama Hukuku çalışma metodolojisi. Mülakatta sorulan sorular ve dikkat edilen kriterler.',
+        targetAudience: 'Hukuk, İİBF (Kamu Yönetimi, Maliye, İktisat) Öğrencileri',
+        benefit: 'İdari hakimlik sınavına çalışma planı, soru dağılımı analizi ve hakimlik mülakatı tecrübe aktarımı.',
+        author: 'Hakim Selin K.',
+        contact: 'Google Meet',
+        date: 'Yaklaşan',
+        comments: []
+      },
+      {
+        id: 'live-5',
+        category: 'live',
+        title: 'Merkez Bankası (TCMB) & BDDK Uzman Yardımcılığı Süreci',
+        speakerRole: '2021 Akdeniz İktisat Mezunu / TCMB Araştırmacı / Uzman',
+        exams: 'YDS (İngilizce), KPSS, TCMB Genel Yetenek & Alan Yazılı',
+        location: 'İktisadi ve İdari Bilimler Fakültesi',
+        liveTime: 'Kayıtlı Yayın & Deneyim Notları',
+        liveStatus: 'archive',
+        url: 'https://youtube.com/watch?v=tcmb-akdeniz-soylesi',
+        desc: 'Merkez Bankası ve BDDK gibi üst kurullara girmek için ileri düzey makroiktisat ve para politikası nasıl çalışılır? İngilizce mülakat nasıl geçer? Akdeniz mezunu olarak bürokraside yer edinmek.',
+        targetAudience: 'İktisat, Ekonometri, İşletme, Finans ve Matematik Bölümleri',
+        benefit: 'Üst kurul sınav formatları, ekonometrik modelleme soruları ve İngilizce mülakat simülasyonu.',
+        author: 'Emre Ç. (TCMB)',
+        contact: 'TCMB Ankara',
+        date: 'Kaydedildi',
+        comments: []
+      },
+
+      // --- 6: Kampüs Panosu & Soru ---
       {
         id: '401',
         category: 'ask',
@@ -1519,9 +1825,9 @@
 
     // LocalStorage Synchronization
     function getListings() {
-      const stored = localStorage.getItem('sahibini_bul_hub_v5');
+      const stored = localStorage.getItem('sahibini_bul_hub_v6');
       if (!stored) {
-        localStorage.setItem('sahibini_bul_hub_v5', JSON.stringify(initialListings));
+        localStorage.setItem('sahibini_bul_hub_v6', JSON.stringify(initialListings));
         return initialListings;
       }
       try {
@@ -1532,16 +1838,17 @@
     }
 
     function saveListings(data) {
-      localStorage.setItem('sahibini_bul_hub_v5', JSON.stringify(data));
+      localStorage.setItem('sahibini_bul_hub_v6', JSON.stringify(data));
     }
 
-    let activeSection = 'lost'; // 'lost', 'found', 'market', 'cert', 'ask'
+    let activeSection = 'lost'; // 'lost', 'found', 'market', 'cert', 'live', 'ask'
 
     const sectionTitles = {
       lost: '🏷️ Eşyamı Kaybettim İlanları',
       found: '🤝 Bir Şey Buldum İlanları',
       market: '🎁 Hediye & Satış Yeri (Öğrenci Pazarı)',
       cert: '📜 Ücretsiz Sertifikalar & Kariyer Rehberi',
+      live: '🎙️ Akdeniz Mezunları: Atanma, Sınav & Mülakat Deneyimleri',
       ask: '💡 Kampüs Panosu, Soru & Dayanışma'
     };
 
@@ -1549,7 +1856,7 @@
       activeSection = sec;
 
       // Update hub card active state
-      ['lost', 'found', 'market', 'cert', 'ask'].forEach(s => {
+      ['lost', 'found', 'market', 'cert', 'live', 'ask'].forEach(s => {
         const card = document.getElementById(`hub-${s}`);
         if (card) {
           card.classList.toggle('active', s === sec);
@@ -1562,7 +1869,7 @@
 
     function updateSectionCounts() {
       const list = getListings();
-      const countMap = { lost: 0, found: 0, market: 0, cert: 0, ask: 0 };
+      const countMap = { lost: 0, found: 0, market: 0, cert: 0, live: 0, ask: 0 };
       list.forEach(i => {
         if (countMap[i.category] !== undefined) {
           countMap[i.category]++;
@@ -1573,6 +1880,7 @@
       document.getElementById('count-found').textContent = `${countMap.found} İlan`;
       document.getElementById('count-market').textContent = `${countMap.market} İlan`;
       document.getElementById('count-cert').textContent = `${countMap.cert} Sertifika`;
+      document.getElementById('count-live').textContent = `${countMap.live} Oturum`;
       document.getElementById('count-ask').textContent = `${countMap.ask} Paylaşım`;
     }
 
@@ -1594,7 +1902,10 @@
           const inAuthor = item.author ? item.author.toLowerCase().includes(search) : false;
           const inProvider = item.provider ? item.provider.toLowerCase().includes(search) : false;
           const inBenefit = item.benefit ? item.benefit.toLowerCase().includes(search) : false;
-          if (!inTitle && !inDesc && !inLoc && !inAuthor && !inProvider && !inBenefit) return false;
+          const inSpeaker = item.speakerRole ? item.speakerRole.toLowerCase().includes(search) : false;
+          const inExams = item.exams ? item.exams.toLowerCase().includes(search) : false;
+          const inTarget = item.targetAudience ? item.targetAudience.toLowerCase().includes(search) : false;
+          if (!inTitle && !inDesc && !inLoc && !inAuthor && !inProvider && !inBenefit && !inSpeaker && !inExams && !inTarget) return false;
         }
         return true;
       });
@@ -1680,6 +1991,112 @@
                   <form class="comment-input-row" onsubmit="postComment(event, '${item.id}')">
                     <input type="text" placeholder="Görüş veya soru yaz..." required>
                     <button type="submit">Gönder</button>
+                  </form>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+        return;
+      }
+
+      // Check if displaying Live Sessions (Mezun & Atananlar Deneyim Alanı)
+      if (activeSection === 'live') {
+        container.innerHTML = filtered.map(item => {
+          const comments = item.comments || [];
+          let statusBadgeClass = 'status-upcoming';
+          let statusText = '🗓️ ' + (item.liveTime || 'Yaklaşan');
+
+          if (item.liveStatus === 'active') {
+            statusBadgeClass = 'status-active';
+            statusText = '🔴 CANLI YAYINDA';
+          } else if (item.liveStatus === 'archive') {
+            statusBadgeClass = 'status-archive';
+            statusText = '📼 KAYIT & DENEYİM';
+          }
+
+          const examList = item.exams ? item.exams.split(',').map(s => s.trim()) : [];
+          const initial = item.author ? item.author.charAt(0).toUpperCase() : 'M';
+
+          return `
+            <article class="live-card">
+              <div>
+                <div class="card-top">
+                  <span class="live-status-badge ${statusBadgeClass}">
+                    ${item.liveStatus === 'active' ? '<span class="live-pulse-dot"></span>' : ''}
+                    ${statusText}
+                  </span>
+                  <span class="card-time">🏛️ ${escapeHTML(item.location || 'İİBF')}</span>
+                </div>
+
+                <h4 class="card-title">${escapeHTML(item.title)}</h4>
+
+                <!-- Speaker Bio Box -->
+                <div class="speaker-profile">
+                  <div class="speaker-avatar">${initial}</div>
+                  <div class="speaker-meta">
+                    <h5>${escapeHTML(item.author)}</h5>
+                    <p>${escapeHTML(item.speakerRole || 'Akdeniz Mezunu')}</p>
+                  </div>
+                </div>
+
+                <!-- Exam Tags -->
+                ${examList.length > 0 ? `
+                  <div class="exam-tag-cloud">
+                    ${examList.map(e => `<span class="exam-pill">🎯 ${escapeHTML(e)}</span>`).join('')}
+                  </div>
+                ` : ''}
+
+                <p class="card-desc">${escapeHTML(item.desc)}</p>
+
+                <!-- Target & Benefit -->
+                ${item.targetAudience ? `
+                  <div class="cert-target-box" style="margin-top: 0.8rem;">
+                    <div class="target-title">
+                      <span>🎯</span> Kimler İzlemeli / Kimlere Fayda Sağlar?
+                    </div>
+                    <p class="target-desc">${escapeHTML(item.targetAudience)}</p>
+                  </div>
+                ` : ''}
+
+                <div class="live-topics-box">
+                  <div class="live-topics-title">
+                    <span>💡</span> Yayında / Notlarda Neler Konuşuluyor?
+                  </div>
+                  <p class="live-topics-desc">${escapeHTML(item.benefit || 'Sınav hazırlık kaynakları, yazılı ve mülakat soruları.')}</p>
+                </div>
+              </div>
+
+              <div>
+                ${item.url ? `
+                  <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="btn-join-live">
+                    ${item.liveStatus === 'active' ? '🔴 Yayına Bağlan & Soru Sor' : '🔗 Oturuma / Kayda Katıl'}
+                  </a>
+                ` : ''}
+
+                <div class="card-bottom" style="margin-top: 1rem;">
+                  <div class="author-info">
+                    <div class="author-circle">🎓</div>
+                    <span>${escapeHTML(item.contact || 'Mezun İletişimi')}</span>
+                  </div>
+                  <button class="btn-discuss" onclick="toggleCommentsDrawer('${item.id}')">
+                    💬 Sorular & Yorumlar (${comments.length})
+                  </button>
+                </div>
+
+                <!-- Comments / Q&A Box -->
+                <div class="comments-box" id="drawer-${item.id}">
+                  <div class="comment-list">
+                    ${comments.length > 0 ? comments.map(c => `
+                      <div class="comment-bubble">
+                        <strong>${escapeHTML(c.author)}:</strong>
+                        <span>${escapeHTML(c.text)}</span>
+                      </div>
+                    `).join('') : '<p style="font-size:0.8rem; color:var(--text-muted);">Henüz soru sorulmamış. Mezunumuza sınav/mülakat hakkında ilk soruyu sen sor!</p>'}
+                  </div>
+                  <form class="comment-input-row" onsubmit="postComment(event, '${item.id}')">
+                    <input type="text" placeholder="Mezuna soru sor..." required>
+                    <button type="submit">Sor</button>
                   </form>
                 </div>
               </div>
@@ -1816,29 +2233,41 @@
       const cat = document.getElementById('formCategory').value;
       const priceGroup = document.getElementById('formPriceGroup');
       const certFields = document.getElementById('certSpecificFields');
+      const liveFields = document.getElementById('liveSpecificFields');
       const modalTitle = document.getElementById('modalTitle');
       const locationSelect = document.getElementById('formLocation');
 
       if (cat === 'market') {
         priceGroup.style.display = 'block';
         certFields.style.display = 'none';
+        liveFields.style.display = 'none';
         modalTitle.textContent = "Öğrenci Pazarı: Ürün Ekle / Hibe Et";
       } else if (cat === 'cert') {
         priceGroup.style.display = 'none';
         certFields.style.display = 'block';
+        liveFields.style.display = 'none';
         modalTitle.textContent = "Ücretsiz Sertifika & Kurs Tavsiyesi Ekle";
         locationSelect.value = "Online / Çevrimiçi";
+      } else if (cat === 'live') {
+        priceGroup.style.display = 'none';
+        certFields.style.display = 'none';
+        liveFields.style.display = 'block';
+        modalTitle.textContent = "Mezun Deneyimi & Sınav/Mülakat Yayını Ekle";
+        locationSelect.value = "İktisadi ve İdari Bilimler Fakültesi";
       } else if (cat === 'lost') {
         priceGroup.style.display = 'none';
         certFields.style.display = 'none';
+        liveFields.style.display = 'none';
         modalTitle.textContent = "Kayıp Eşya İlanı Ekle";
       } else if (cat === 'found') {
         priceGroup.style.display = 'none';
         certFields.style.display = 'none';
+        liveFields.style.display = 'none';
         modalTitle.textContent = "Buluntu Eşya Bildir";
       } else {
         priceGroup.style.display = 'none';
         certFields.style.display = 'none';
+        liveFields.style.display = 'none';
         modalTitle.textContent = "Kampüs Panosu: Soru veya Talep Yaz";
       }
     }
@@ -1857,6 +2286,10 @@
       let benefit = '';
       let targetAudience = '';
       let url = '';
+      let speakerRole = '';
+      let exams = '';
+      let liveTime = '';
+      let liveStatus = 'upcoming';
 
       if (category === 'market') {
         price = document.getElementById('formPrice').value.trim() || 'ÜCRETSİZ / HİBE';
@@ -1866,6 +2299,12 @@
         targetAudience = document.getElementById('formTargetAudience').value.trim() || 'Tüm Üniversite Öğrencileri';
         benefit = document.getElementById('formBenefit').value.trim() || 'CV ve kariyer gelişimi sağlar.';
         url = document.getElementById('formCertUrl').value.trim();
+      } else if (category === 'live') {
+        speakerRole = document.getElementById('formSpeakerRole').value.trim() || 'Akdeniz Mezunu';
+        exams = document.getElementById('formExams').value.trim() || 'KPSS & Kurum Sınavları';
+        liveTime = document.getElementById('formLiveTime').value.trim() || 'Yakında';
+        url = document.getElementById('formLiveLink').value.trim();
+        liveStatus = liveTime.toLowerCase().includes('canlı') ? 'active' : 'upcoming';
       }
 
       const newItem = {
@@ -1881,6 +2320,10 @@
         duration,
         targetAudience,
         benefit,
+        speakerRole,
+        exams,
+        liveTime,
+        liveStatus,
         url,
         date: 'Az önce',
         comments: []
