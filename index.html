@@ -3,23 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sahibini Bul - Kayıp & Buluntu Platformu</title>
+  <title>Sahibini Bul - Akdeniz Üniversitesi Kampüs Dayanışma & Kayıp Eşya Platformu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #4f46e5;
-      --primary-hover: #4338ca;
-      --bg: #0f172a;
-      --card: #1e293b;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --accent: #10b981;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-subtle: #f1f5f9;
+      --border: #e2e8f0;
+      --border-focus: #93c5fd;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --lost-badge-bg: #fee2e2;
+      --lost-badge-text: #dc2626;
+      --found-badge-bg: #dcfce7;
+      --found-badge-text: #16a34a;
+      --free-badge-bg: #fef3c7;
+      --free-badge-text: #d97706;
+      --sale-badge-bg: #ede9fe;
+      --sale-badge-text: #7c3aed;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+      --radius: 12px;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     }
 
     body {
@@ -28,145 +46,1166 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      line-height: 1.5;
     }
 
+    /* Top Bar */
+    .top-announcement {
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Header */
     header {
-      padding: 1.5rem 2rem;
+      background-color: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #334155;
+      gap: 1rem;
     }
 
-    .logo {
-      font-size: 1.5rem;
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--primary-light);
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .logo-text h1 {
+      font-size: 1.25rem;
       font-weight: 700;
       color: var(--text);
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.125rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 1px 2px 0 rgba(37, 99, 235, 0.2);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background-color: var(--surface);
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--surface-subtle);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Hero / Intro Banner */
+    .hero-banner {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-banner h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .hero-banner p {
+      color: var(--text-muted);
+      max-width: 720px;
+      font-size: 1rem;
+    }
+
+    /* Tabs Navigation */
+    .tabs-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 1.75rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tabs-list {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .tab-btn {
+      padding: 0.75rem 1.25rem;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--primary);
+    }
+
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .tab-badge {
+      background-color: var(--surface-subtle);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+
+    .tab-btn.active .tab-badge {
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+
+    /* Filter & Search Bar */
+    .filter-bar {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.6rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .filter-select {
+      padding: 0.75rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 0.95rem;
+      cursor: pointer;
+      outline: none;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .badge-lost { background: var(--lost-badge-bg); color: var(--lost-badge-text); }
+    .badge-found { background: var(--found-badge-bg); color: var(--found-badge-text); }
+    .badge-free { background: var(--free-badge-bg); color: var(--free-badge-text); }
+    .badge-sale { background: var(--sale-badge-bg); color: var(--sale-badge-text); }
+
+    .card-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: #475569;
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+      word-break: break-word;
+    }
+
+    .card-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .meta-row {
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
-    .badge {
-      background: var(--accent);
-      color: #064e3b;
-      font-size: 0.75rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 9999px;
-      font-weight: 600;
+    .meta-price {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #15803d;
     }
 
-    main {
-      flex: 1;
+    .card-footer {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.75rem;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .user-tag {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .user-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      display: flex;
       align-items: center;
       justify-content: center;
-      padding: 3rem 1.5rem;
-      text-align: center;
+      font-size: 0.75rem;
+      color: #334155;
+      font-weight: 700;
     }
 
-    .hero {
-      max-width: 650px;
+    /* Modal Form / Pop-up Dialog */
+    dialog {
+      margin: auto;
+      border: none;
+      border-radius: 16px;
+      padding: 0;
+      max-width: 580px;
+      width: 90%;
+      background: var(--surface);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     }
 
-    h1 {
-      font-size: 2.75rem;
-      line-height: 1.2;
+    dialog::backdrop {
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+      padding: 2rem;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-header h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      padding: 0.25rem;
+      line-height: 1;
+    }
+
+    .form-group {
       margin-bottom: 1.25rem;
-      background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
 
-    p.subtitle {
-      font-size: 1.2rem;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 2.5rem;
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text);
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
+    .form-control {
       width: 100%;
-      max-width: 750px;
+      padding: 0.65rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+    }
+
+    /* Comments Section inside Card */
+    .comments-drawer {
       margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--border);
+      display: none;
     }
 
-    .card {
-      background-color: var(--card);
-      border: 1px solid #334155;
-      border-radius: 1rem;
-      padding: 1.75rem;
-      text-align: left;
-      transition: transform 0.2s, border-color 0.2s;
+    .comments-drawer.open {
+      display: block;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
+    .comments-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      max-height: 140px;
+      overflow-y: auto;
+    }
+
+    .comment-item {
+      font-size: 0.85rem;
+      background: var(--surface-subtle);
+      padding: 0.4rem 0.65rem;
+      border-radius: 6px;
+    }
+
+    .comment-author {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .comment-text {
+      color: #334155;
+    }
+
+    .comment-form {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .comment-input {
+      flex: 1;
+      padding: 0.45rem 0.65rem;
+      font-size: 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .comment-input:focus {
       border-color: var(--primary);
     }
 
-    .card-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .btn-comment {
+      padding: 0.45rem 0.75rem;
+      font-size: 0.85rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
-    .card h3 {
-      font-size: 1.2rem;
+    .btn-toggle-comments {
+      background: none;
+      border: none;
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.2rem 0;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem 1rem;
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+      color: var(--text-muted);
+    }
+
+    .empty-state span {
+      font-size: 2.5rem;
+      display: block;
       margin-bottom: 0.5rem;
     }
 
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
+    /* Footer */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      margin-top: 3rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
     }
 
-    footer {
-      border-top: 1px solid #334155;
-      padding: 1.5rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.875rem;
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .header-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .header-actions {
+        justify-content: stretch;
+      }
+      .header-actions .btn {
+        flex: 1;
+        justify-content: center;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .tabs-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Top Info -->
+  <div class="top-announcement">
+    ☀️ Akdeniz Üniversitesi Kampüsü İçin Açık & Ücretsiz Öğrenci Yardımlaşma Alanı
+  </div>
+
+  <!-- Header -->
   <header>
-    <div class="logo">
-      🔍 Sahibini Bul
-      <span class="badge">Çok Yakında</span>
+    <div class="header-container">
+      <a href="#" class="logo-group">
+        <div class="logo-icon">🔍</div>
+        <div class="logo-text">
+          <h1>Sahibini Bul</h1>
+          <span>Akdeniz Üniversitesi İlan & Dayanışma</span>
+        </div>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-secondary" onclick="openModal('lost')">
+          📢 Kayıp/Buluntu Ekle
+        </button>
+        <button class="btn btn-primary" onclick="openModal('market')">
+          🎁 Ürün Ekle / Hibe Et
+        </button>
+      </div>
     </div>
   </header>
 
+  <!-- Main Content -->
   <main>
-    <div class="hero">
-      <h1>Kayıp eşyalar ve sahipleri artık buluşuyor</h1>
-      <p class="subtitle">
-        Kaybettiğiniz değerli eşyaları bildirin veya bulduğunuz eşyaları sahibine güvenle ulaştırmak için ilan verin.
+    <!-- Welcome Banner -->
+    <section class="hero-banner">
+      <h2>Akdeniz Kampüsü Öğrenci Dayanışması</h2>
+      <p>
+        Kampüste kaybettiğin ya da bulduğun eşyaları herkesle paylaş, sahibine kavuştur! 
+        Ayrıca öğrencilerin birbirine kitap, ders notu, ev eşyası hibe ettiği veya uygun fiyata sattığı Öğrenci Pazarı'ndan faydalan. Herkese açıktır ve kayıt gerektirmez.
       </p>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs-wrapper">
+      <div class="tabs-list">
+        <button class="tab-btn active" id="tab-lost" onclick="switchTab('lost')">
+          🔍 Kayıp & Buluntu Eşyalar
+          <span class="tab-badge" id="count-lost">0</span>
+        </button>
+        <button class="tab-btn" id="tab-market" onclick="switchTab('market')">
+          🛍️ Öğrenci Pazarı (Hediye & Satış)
+          <span class="tab-badge" id="count-market">0</span>
+        </button>
+      </div>
     </div>
 
-    <div class="cards">
-      <div class="card">
-        <div class="card-icon">🏷️</div>
-        <h3>Eşyanı mı Kaybettin?</h3>
-        <p>Detayları girerek anında arama ağına ekle, bulanlar sana güvenle ulaşsın.</p>
+    <!-- Search & Filter Controls -->
+    <div class="filter-bar">
+      <div class="search-box">
+        <span class="search-icon">🔎</span>
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="İlanlar arasında ara (örn: Cüzdan, Hukuk Kitabı, Kulaklık, Olbia)..."
+          oninput="renderCards()"
+        >
       </div>
+      <select id="filterType" class="filter-select" onchange="renderCards()">
+        <option value="all">Tüm Kategoriler</option>
+      </select>
+      <select id="filterLocation" class="filter-select" onchange="renderCards()">
+        <option value="all">Tüm Konumlar / Fakülteler</option>
+        <option value="Merkezi Kütüphane">Merkezi Kütüphane</option>
+        <option value="Olbia Çarşısı">Olbia Çarşısı</option>
+        <option value="Mühendislik Fakültesi">Mühendislik Fakültesi</option>
+        <option value="İktisadi ve İdari Bilimler Fakültesi">İİBF</option>
+        <option value="Hukuk Fakültesi">Hukuk Fakültesi</option>
+        <option value="Edebiyat Fakültesi">Edebiyat Fakültesi</option>
+        <option value="Fen Fakültesi">Fen Fakültesi</option>
+        <option value="Tıp Fakültesi / Hastane">Tıp Fakültesi</option>
+        <option value="Yakut Çarşısı">Yakut Çarşısı</option>
+        <option value="KYK Yurtları / Kampüs Geneli">KYK / Kampüs İçi</option>
+      </select>
+    </div>
 
-      <div class="card">
-        <div class="card-icon">🤝</div>
-        <h3>Bir Şey mi Buldun?</h3>
-        <p>Konum ve fotoğrafla ilan aç, sahibini bulmasına vesile ol.</p>
-      </div>
+    <!-- Listings Container -->
+    <div class="cards-grid" id="cardsContainer">
+      <!-- Dynamic cards rendered here -->
     </div>
   </main>
 
+  <!-- Create Post Modal Dialog -->
+  <dialog id="postModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Yeni İlan Ekle</h3>
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+      </div>
+
+      <form id="postForm" onsubmit="handleFormSubmit(event)">
+        <input type="hidden" id="postSection" value="lost">
+
+        <div class="form-group">
+          <label for="postType">İlan Türü</label>
+          <select id="postType" class="form-control" onchange="handleTypeChange()" required>
+            <!-- Options dynamically filled -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="postTitle">Başlık</label>
+          <input type="text" id="postTitle" class="form-control" placeholder="Örn: Mavi Matara, Algoritma Kitabı..." required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="postLocation">Konum / Fakülte</label>
+            <select id="postLocation" class="form-control" required>
+              <option value="Merkezi Kütüphane">Merkezi Kütüphane</option>
+              <option value="Olbia Çarşısı">Olbia Çarşısı</option>
+              <option value="Mühendislik Fakültesi">Mühendislik Fakültesi</option>
+              <option value="İktisadi ve İdari Bilimler Fakültesi">İİBF</option>
+              <option value="Hukuk Fakültesi">Hukuk Fakültesi</option>
+              <option value="Edebiyat Fakültesi">Edebiyat Fakültesi</option>
+              <option value="Fen Fakültesi">Fen Fakültesi</option>
+              <option value="Tıp Fakültesi / Hastane">Tıp Fakültesi</option>
+              <option value="Yakut Çarşısı">Yakut Çarşısı</option>
+              <option value="KYK Yurtları / Kampüs Geneli">KYK Yurtları / Kampüs Geneli</option>
+            </select>
+          </div>
+          
+          <div class="form-group" id="priceFieldGroup" style="display: none;">
+            <label for="postPrice">Fiyat (TL)</label>
+            <input type="text" id="postPrice" class="form-control" placeholder="Ücretsiz veya 150 TL">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="postDesc">Detaylı Açıklama</label>
+          <textarea id="postDesc" class="form-control" placeholder="Eşyanın durumu, tam nerede bulunduğu ya da teslim şekli..." required></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="postAuthor">Adınız / Rumuz</label>
+            <input type="text" id="postAuthor" class="form-control" placeholder="Örn: Zeynep K." required>
+          </div>
+          <div class="form-group">
+            <label for="postContact">İletişim (İsteğe Bağlı)</label>
+            <input type="text" id="postContact" class="form-control" placeholder="Instagram / Tel / E-posta">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal()">Vazgeç</button>
+          <button type="submit" class="btn btn-primary">İlanı Yayınla</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2026 Sahibini Bul &bull; Geliştirici: Zeynep Kızılay</p>
+    <p>
+      <strong>Sahibini Bul & Öğrenci Pazarı</strong> &bull; Akdeniz Üniversitesi Öğrencileri İçin Açık Platform
+    </p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+      Geliştirici: <a href="https://github.com/ZeynepKizilay" target="_blank" rel="noopener">Zeynep Kızılay</a> &bull; Kayıt gerektirmez, herkes özgürce ilan ve mesaj bırakabilir.
+    </p>
   </footer>
+
+  <script>
+    // Initial sample data for Akdeniz University
+    const defaultData = [
+      {
+        id: '1',
+        section: 'lost',
+        type: 'lost',
+        title: 'Siyah Deri Cüzdan (Öğrenci Kimliği İçinde)',
+        location: 'Merkezi Kütüphane',
+        desc: 'Zemin kat çalışma salonunda masada unutulmuş olabilir. İçinde Akdeniz Üni kimliğim ve Kentkart vardı, bulanların haber vermesini rica ederim.',
+        author: 'Burak T.',
+        contact: 'Instagram: @burak_akdnz',
+        date: 'Bugün, 14:20',
+        comments: [
+          { author: 'Selin A.', text: 'Danışmaya bırakan oldu mu baktın mı? Bazen oraya teslim ediyorlar.' }
+        ]
+      },
+      {
+        id: '2',
+        section: 'lost',
+        type: 'found',
+        title: 'Mavi Stanley Termos Bulundu',
+        location: 'Olbia Çarşısı',
+        desc: 'Olbia amfi basamaklarında unutulmuş. Üzerinde ufak bir kedi çıkartması var. Güvenlik kulübesine teslim edilmeden önce sahibini arıyorum.',
+        author: 'Eren Y.',
+        contact: 'eren.akdeniz@ogr.edu.tr',
+        date: 'Bugün, 12:45',
+        comments: []
+      },
+      {
+        id: '3',
+        section: 'lost',
+        type: 'found',
+        title: 'Gözlük Kabı ve Numaralı Gözlük',
+        location: 'Mühendislik Fakültesi',
+        desc: 'B Blok 2. kat 204 numaralı amfide sıranın altında bulundu. Fakülte sekreterliğine bırakıldı.',
+        author: 'Fatma K.',
+        contact: 'Sekreterlikten teslim alabilirsiniz',
+        date: 'Dün, 16:30',
+        comments: []
+      },
+      {
+        id: '4',
+        section: 'market',
+        type: 'free',
+        title: '1. Sınıf Hukuka Giriş & Anayasa Kitapları',
+        location: 'Hukuk Fakültesi',
+        desc: 'Geçen seneden kalan temiz kitaplarımı ihtiyacı olan bir alt sınıf arkadaşımıza hediye etmek istiyorum. Çizik veya eksik sayfası yok.',
+        author: 'Zeynep K.',
+        contact: 'DM: @zeynep_kizilay',
+        price: 'ÜCRETSİZ / HİBE',
+        date: 'Bugün, 15:10',
+        comments: [
+          { author: 'Caner D.', text: 'Merhaba Zeynep, ben 1. sınıf öğrencisiyim talibim alabilir miyim?' }
+        ]
+      },
+      {
+        id: '5',
+        section: 'market',
+        type: 'sale',
+        title: 'Çalışma Masası Lambası (Şarjlı & LED)',
+        location: 'KYK Yurtları / Kampüs Geneli',
+        desc: 'Yurttan eve çıktığım için satıyorum. 3 kademeli ışığı var, bataryası gayet iyi gidiyor.',
+        author: 'Mert S.',
+        contact: '0555 123 45 67',
+        price: '120 TL',
+        date: 'Dün, 19:00',
+        comments: []
+      },
+      {
+        id: '6',
+        section: 'market',
+        type: 'free',
+        title: 'Mühendislik Hesap Makinesi (Casio)',
+        location: 'Mühendislik Fakültesi',
+        desc: 'Mezun oluyorum, yeni başlayan ve bütçesi olmayan bir arkadaşa hediye edilecektir.',
+        author: 'Oğuzhan Ç.',
+        contact: 'oguzhan@akdeniz.edu.tr',
+        price: 'ÜCRETSİZ / HİBE',
+        date: '2 gün önce',
+        comments: []
+      }
+    ];
+
+    // Local Storage synchronization
+    function getStoredData() {
+      const stored = localStorage.getItem('sahibini_bul_data_v1');
+      if (!stored) {
+        localStorage.setItem('sahibini_bul_data_v1', JSON.stringify(defaultData));
+        return defaultData;
+      }
+      try {
+        return JSON.parse(stored);
+      } catch (e) {
+        return defaultData;
+      }
+    }
+
+    function saveStoredData(data) {
+      localStorage.setItem('sahibini_bul_data_v1', JSON.stringify(data));
+    }
+
+    let currentSection = 'lost'; // 'lost' or 'market'
+
+    function switchTab(section) {
+      currentSection = section;
+      document.getElementById('tab-lost').classList.toggle('active', section === 'lost');
+      document.getElementById('tab-market').classList.toggle('active', section === 'market');
+      
+      // Update filter options based on section
+      const filterType = document.getElementById('filterType');
+      if (section === 'lost') {
+        filterType.innerHTML = `
+          <option value="all">Tüm Durumlar (Kayıp & Bulundu)</option>
+          <option value="lost">Yalnızca Kayıp Eşyalar</option>
+          <option value="found">Yalnızca Bulunan Eşyalar</option>
+        `;
+      } else {
+        filterType.innerHTML = `
+          <option value="all">Tüm Ürünler (Hediye & Satış)</option>
+          <option value="free">Hediye / Hibe (Ücretsiz)</option>
+          <option value="sale">Öğrenciden Satılık</option>
+        `;
+      }
+
+      renderCards();
+    }
+
+    function updateBadgeCounts() {
+      const data = getStoredData();
+      const lostCount = data.filter(item => item.section === 'lost').length;
+      const marketCount = data.filter(item => item.section === 'market').length;
+      document.getElementById('count-lost').textContent = lostCount;
+      document.getElementById('count-market').textContent = marketCount;
+    }
+
+    function renderCards() {
+      updateBadgeCounts();
+      const data = getStoredData();
+      const container = document.getElementById('cardsContainer');
+      const searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+      const filterTypeValue = document.getElementById('filterType').value;
+      const filterLocationValue = document.getElementById('filterLocation').value;
+
+      // Filter by section, search, type, and location
+      const filtered = data.filter(item => {
+        if (item.section !== currentSection) return false;
+        
+        if (filterTypeValue !== 'all' && item.type !== filterTypeValue) return false;
+        if (filterLocationValue !== 'all' && item.location !== filterLocationValue) return false;
+        
+        if (searchQuery) {
+          const matchTitle = item.title.toLowerCase().includes(searchQuery);
+          const matchDesc = item.desc.toLowerCase().includes(searchQuery);
+          const matchLoc = item.location.toLowerCase().includes(searchQuery);
+          const matchAuthor = item.author.toLowerCase().includes(searchQuery);
+          if (!matchTitle && !matchDesc && !matchLoc && !matchAuthor) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <span>📭</span>
+            <h3>Henüz ilan bulunamadı</h3>
+            <p>Arama kriterlerinizi değiştirebilir veya ilk ilanı siz ekleyebilirsiniz!</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => {
+        let badgeClass = 'badge-lost';
+        let badgeText = 'Kayıp';
+
+        if (item.type === 'found') {
+          badgeClass = 'badge-found';
+          badgeText = 'Bulundu';
+        } else if (item.type === 'free') {
+          badgeClass = 'badge-free';
+          badgeText = 'Hediye / Hibe';
+        } else if (item.type === 'sale') {
+          badgeClass = 'badge-sale';
+          badgeText = 'Satılık';
+        }
+
+        const commentsCount = item.comments ? item.comments.length : 0;
+        const initial = item.author ? item.author.charAt(0).toUpperCase() : '?';
+
+        return `
+          <article class="card">
+            <div>
+              <div class="card-header">
+                <span class="badge ${badgeClass}">${badgeText}</span>
+                <span class="card-date">${item.date || 'Bugün'}</span>
+              </div>
+              <h3 class="card-title">${escapeHTML(item.title)}</h3>
+              <p class="card-desc">${escapeHTML(item.desc)}</p>
+            </div>
+
+            <div>
+              <div class="card-meta">
+                <div class="meta-row">
+                  <span>📍</span>
+                  <strong>${escapeHTML(item.location)}</strong>
+                </div>
+                ${item.price ? `
+                  <div class="meta-row">
+                    <span>🏷️</span>
+                    <span class="meta-price">${escapeHTML(item.price)}</span>
+                  </div>
+                ` : ''}
+                ${item.contact ? `
+                  <div class="meta-row">
+                    <span>💬</span>
+                    <span>${escapeHTML(item.contact)}</span>
+                  </div>
+                ` : ''}
+              </div>
+
+              <div class="card-footer">
+                <div class="user-tag">
+                  <div class="user-avatar">${initial}</div>
+                  <span>${escapeHTML(item.author)}</span>
+                </div>
+                <button class="btn-toggle-comments" onclick="toggleComments('${item.id}')">
+                  💬 Mesajlar (${commentsCount})
+                </button>
+              </div>
+
+              <!-- Comments Drawer -->
+              <div class="comments-drawer" id="comments-${item.id}">
+                <ul class="comments-list">
+                  ${commentsCount > 0 ? item.comments.map(c => `
+                    <li class="comment-item">
+                      <span class="comment-author">${escapeHTML(c.author)}:</span>
+                      <span class="comment-text">${escapeHTML(c.text)}</span>
+                    </li>
+                  `).join('') : '<li style="font-size:0.8rem; color:var(--text-muted);">Henüz mesaj yazılmamış. İlk sen yaz!</li>'}
+                </ul>
+                <form class="comment-form" onsubmit="handleAddComment(event, '${item.id}')">
+                  <input type="text" class="comment-input" placeholder="Herkese açık mesaj yaz..." required>
+                  <button type="submit" class="btn-comment">Gönder</button>
+                </form>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function toggleComments(id) {
+      const drawer = document.getElementById(`comments-${id}`);
+      if (drawer) {
+        drawer.classList.toggle('open');
+      }
+    }
+
+    function handleAddComment(e, itemId) {
+      e.preventDefault();
+      const input = e.target.querySelector('.comment-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const commenter = prompt("Mesajda görünecek adınız veya rumuzunuz:", "Akdeniz Öğrencisi") || "Öğrenci";
+
+      const data = getStoredData();
+      const item = data.find(i => i.id === itemId);
+      if (item) {
+        if (!item.comments) item.comments = [];
+        item.comments.push({ author: commenter, text });
+        saveStoredData(data);
+        renderCards();
+        // Reopen comments drawer for immediate view
+        setTimeout(() => {
+          const drawer = document.getElementById(`comments-${itemId}`);
+          if (drawer) drawer.classList.add('open');
+        }, 50);
+      }
+    }
+
+    // Modal Handling
+    const modal = document.getElementById('postModal');
+
+    function openModal(section) {
+      document.getElementById('postSection').value = section;
+      const typeSelect = document.getElementById('postType');
+      const modalTitle = document.getElementById('modalTitle');
+      const priceGroup = document.getElementById('priceFieldGroup');
+
+      if (section === 'lost') {
+        modalTitle.textContent = "Kayıp / Buluntu İlanı Ekle";
+        typeSelect.innerHTML = `
+          <option value="lost">Kayıp Eşya (Eşyamı Kaybettim)</option>
+          <option value="found">Bulunan Eşya (Bir Eşya Buldum)</option>
+        `;
+        priceGroup.style.display = 'none';
+      } else {
+        modalTitle.textContent = "Öğrenci Pazarı: İlan / Hibe Ekle";
+        typeSelect.innerHTML = `
+          <option value="free">Hediye / Hibe (Ücretsiz)</option>
+          <option value="sale">Öğrenciden Satılık</option>
+        `;
+        priceGroup.style.display = 'block';
+      }
+
+      handleTypeChange();
+      modal.showModal();
+    }
+
+    function closeModal() {
+      modal.close();
+      document.getElementById('postForm').reset();
+    }
+
+    function handleTypeChange() {
+      const section = document.getElementById('postSection').value;
+      const type = document.getElementById('postType').value;
+      const priceGroup = document.getElementById('priceFieldGroup');
+      const priceInput = document.getElementById('postPrice');
+
+      if (section === 'market') {
+        priceGroup.style.display = 'block';
+        if (type === 'free') {
+          priceInput.value = 'ÜCRETSİZ / HİBE';
+          priceInput.disabled = true;
+        } else {
+          priceInput.value = '';
+          priceInput.placeholder = 'Örn: 150 TL';
+          priceInput.disabled = false;
+        }
+      } else {
+        priceGroup.style.display = 'none';
+      }
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const section = document.getElementById('postSection').value;
+      const type = document.getElementById('postType').value;
+      const title = document.getElementById('postTitle').value.trim();
+      const location = document.getElementById('postLocation').value;
+      const desc = document.getElementById('postDesc').value.trim();
+      const author = document.getElementById('postAuthor').value.trim();
+      const contact = document.getElementById('postContact').value.trim();
+      let price = '';
+
+      if (section === 'market') {
+        price = type === 'free' ? 'ÜCRETSİZ / HİBE' : (document.getElementById('postPrice').value.trim() || 'Fiyat Belirtilmedi');
+      }
+
+      const newItem = {
+        id: Date.now().toString(),
+        section,
+        type,
+        title,
+        location,
+        desc,
+        author,
+        contact,
+        price,
+        date: 'Az önce',
+        comments: []
+      };
+
+      const data = getStoredData();
+      data.unshift(newItem);
+      saveStoredData(data);
+
+      closeModal();
+      switchTab(section);
+    }
+
+    function escapeHTML(str) {
+      if (!str) return '';
+      return str.replace(/[&<>'"]/g, 
+        tag => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          "'": '&#39;',
+          '"': '&quot;'
+        }[tag] || tag)
+      );
+    }
+
+    // Close dialog on backdrop click
+    modal.addEventListener('click', (e) => {
+      const rect = modal.getBoundingClientRect();
+      const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height
+        && rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+      if (!isInDialog) {
+        modal.close();
+      }
+    });
+
+    // Initial setup
+    switchTab('lost');
+  </script>
 </body>
 </html>
